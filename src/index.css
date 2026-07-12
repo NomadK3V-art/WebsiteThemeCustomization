@@ -770,3 +770,46 @@ body.navigating::after {
 .service-box {
   transform-style: preserve-3d;
 }
+
+/* ── Form field legibility ──────────────────────────────────────────
+   Inputs render on a solid white field, so text and placeholder must be
+   dark regardless of the surrounding neon overrides. High specificity +
+   !important so these always win over the global body/paragraph glows. */
+.field input,
+.field select,
+.field textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="date"],
+input[type="url"],
+select,
+textarea {
+  background: #ffffff !important;
+  color: #0a0a0a !important;      /* black text on white field */
+  text-shadow: none !important;   /* kill the neon glow on typed text */
+  -webkit-text-fill-color: #0a0a0a !important;
+  caret-color: #0a0a0a !important;
+}
+
+.field input::placeholder,
+.field select::placeholder,
+.field textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #6b6b6b !important;      /* dark grey, clearly visible on white */
+  text-shadow: none !important;
+  opacity: 1 !important;          /* Firefox dims placeholders by default */
+}
+
+/* Autofill: browsers force their own light background — pin text dark too. */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #0a0a0a !important;
+  caret-color: #0a0a0a !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+}

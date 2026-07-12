@@ -96,7 +96,11 @@ setInterval(() => {
 
     if (now - lastRing > ringInterval) {
       lastRing = now;
-      ringInterval = 2000 + Math.random() * 2500; 
+      ringInterval = 2500 + Math.random() * 3000; // cadence: ~2.5–5.5s (slightly slower)
+
+      // Randomly skip some spawns entirely so rings still appear, just less predictably.
+      // ~45–70% of eligible ticks are skipped, varying each time for a more random feel.
+      if (Math.random() < 0.45 + Math.random() * 0.25) return;
 
       const ring = document.createElement('div');
       ring.className = 'cursor-smoke-ring';
