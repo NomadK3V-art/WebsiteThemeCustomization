@@ -541,14 +541,14 @@ h1, h2, h3, h4, .lava-text, .lava-text-sm {
   font-family: var(--display) !important;
 }
 
-/* Private Health Insurance specific background using Lettering-1.jpg */
+/* Private Health Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-phi {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Lettering-1.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
 }
 
-/* Life Insurance specific background using LI_pic.jpg */
+/* Life Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-li {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/LI_pic.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
 }
 
 /* Concierge Medicine specific background using Con.jpg */
@@ -565,159 +565,30 @@ h1, h2, h3, h4, .lava-text, .lava-text-sm {
 
 
 
-@keyframes cursorFlame {
-  0% { opacity: 0.9; filter: drop-shadow(0 0 5px #FF5E00) drop-shadow(0 0 10px #B400FF); height: 55px; }
-  25% { opacity: 1; filter: drop-shadow(0 0 8px #FF5E00) drop-shadow(0 -2px 15px #B400FF); height: 60px; }
-  50% { opacity: 0.85; filter: drop-shadow(0 0 4px #FF5E00) drop-shadow(0 -1px 12px #B400FF); height: 55px; }
-  75% { opacity: 1; filter: drop-shadow(0 0 10px #FF5E00) drop-shadow(0 -4px 20px #B400FF); height: 58px; }
-  100% { opacity: 0.9; filter: drop-shadow(0 0 5px #FF5E00) drop-shadow(0 0 10px #B400FF); height: 55px; }
-}
 
-/* Lingering smoke trail for the cursor flame */
-.cursor-smoke {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  /* Dark bluish-grey smoke */
-  background: radial-gradient(circle, rgba(0, 191, 255, 0.3) 0%, rgba(30, 30, 40, 0.4) 40%, transparent 80%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
-  /* Animation travels up ~1 inch (96px) before fading out */
-  animation: smokeRise 2.2s forwards linear;
-}
-
-@keyframes smokeRise {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translate(calc(-50% + calc(var(--drift-x, 0px) * 0.5)), -100px) scale(1.5);
-    opacity: 0.7;
-  }
-  100% {
-    /* Pushed higher (-220px) to extend the trail length by about half an inch */
-    transform: translate(calc(-50% + var(--drift-x, 0px)), -220px) scale(3.5);
-    opacity: 0;
-  }
-}
-
-/* Global cursor flame */
+/* Laser Pointer Head */
 body::after {
   content: "";
   position: fixed;
   top: var(--cursor-y, -100px);
   left: var(--cursor-x, -100px);
-  width: 18px;
-  height: 55px;
-  /* Matching the middle row (blue base, yellow body, orange tip) */
-  background: radial-gradient(ellipse at bottom, #0033FF 0%, #00BFFF 20%, #FFE600 45%, #FF5E00 75%, transparent 100%);
-  /* A combination of skew and rotate creates a distinct curve/bend rather than a rigid lean */
-  transform: translate(-50%, -90%) rotate(calc(var(--flame-lean, 0deg) * 0.5)) skewX(calc(var(--flame-lean, 0deg) * 0.5));
-  transform-origin: 50% 100%;
-  border-radius: 50% 50% 50% 50% / 85% 85% 25% 25%;
+  width: 8px;
+  height: 8px;
+  background: #C0FFF0; 
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 99999;
+  box-shadow: 0 0 6px rgba(0, 255, 200, 0.8), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4);
   mix-blend-mode: screen;
-  animation: cursorFlame var(--flicker-speed, 0.4s) infinite ease-in-out;
-  transform-origin: 50% 90%;
 }
 
-/* Hide the default OS cursor everywhere */
-* {
-  cursor: none !important;
+/* Hide cursor & tail when navigating */
+body.navigating::after,
+#cursor-canvas.navigating {
+  display: none !important;
 }
 
-/* Stationary Smoke Rings */
-
-
-.cursor-smoke-ring {
-  position: fixed;
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(0, 255, 255, 0.9);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
-  box-shadow: 0 0 6px rgba(0, 191, 255, 0.8), inset 0 0 4px rgba(0, 191, 255, 0.6);
-  animation: smokeRingFree var(--duration, 8s) forwards linear;
-}
-
-.cursor-smoke-ring.hit-ceiling {
-  animation: smokeRingCeil var(--duration, 8s) forwards ease-out;
-}
-
-@keyframes smokeRingFree {
-  0% { transform: translate(-50%, -50%) scale(0.8) rotateX(65deg); opacity: 0.95; filter: blur(0px); }
-  15% { opacity: 0.7; filter: blur(1px); }
-  100% { transform: translate(calc(-50% + calc(var(--drift-x, 0px) * 3)), var(--hit-y, -600px)) scale(14) rotateX(65deg); opacity: 0; filter: blur(8px); }
-}
-
-@keyframes smokeRingCeil {
-  0% { transform: translate(-50%, -50%) scale(0.8) rotateX(65deg); opacity: 0.95; filter: blur(0px); }
-  15% { opacity: 0.7; filter: blur(1px); }
-  40% { transform: translate(calc(-50% + var(--drift-x, 0px)), var(--hit-y)) scale(5) rotateX(82deg); opacity: 0.6; filter: blur(3px); }
-  100% { transform: translate(calc(-50% + var(--drift-x, 0px)), var(--hit-y)) scaleX(25) scaleY(7) rotateX(88deg); opacity: 0; filter: blur(12px); }
-}
-
-/* Longer smoke trail when cursor is moving */
-.moving-smoke {
-  animation: smokeRiseMoving 3.2s forwards linear;
-}
-
-@keyframes smokeRiseMoving {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.95;
-  }
-  50% {
-    transform: translate(calc(-50% + calc(var(--drift-x, 0px) * 1.5)), -170px) scale(2);
-    opacity: 0.8;
-  }
-  100% {
-    /* Extended travel distance to -380px for a very long swooping tail */
-    transform: translate(calc(-50% + calc(var(--drift-x, 0px) * 3)), -380px) scale(4);
-    opacity: 0;
-  }
-}
-
-/* Fast ring and its jellyfish trail */
-.cursor-smoke-ring.fast-ring {
-  border-width: 3px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.9), inset 0 0 8px rgba(0, 255, 255, 0.8);
-}
-
-/* Make the trail exactly match the diameter of the ring and create a tube effect */
-.ring-trail {
-  /* Using width/height to match the actual visual dimension of the ring (14px * 1.5 scale) */
-  width: 21px; 
-  height: 21px;
-  /* Thin white edges with a hollow transparent center (a tube!) */
-  background: radial-gradient(circle, transparent 40%, rgba(255, 255, 255, 0.4) 60%, rgba(0, 191, 255, 0.2) 80%, transparent 100%);
-  /* Start oval shaped to match the ring's rotateX perspective */
-  transform: translate(-50%, -50%) scaleY(0.4); 
-  animation: tubeTrail 1.8s forwards ease-out !important;
-}
-
-@keyframes tubeTrail {
-  0% { transform: translate(-50%, -50%) scaleX(1) scaleY(0.4); opacity: 0.7; }
-  100% { transform: translate(calc(-50% + calc(var(--drift-x, 0px) * 2)), 60px) scaleX(1) scaleY(0.4); opacity: 0; }
-}
-
-
-.cursor-smoke-ring.fast-ring {
-  animation: fastRingRise var(--duration, 3s) forwards linear !important;
-}
-
-@keyframes fastRingRise {
-  0% { transform: translate(-50%, -50%) scale(1.5) rotateX(65deg); opacity: 0.95; filter: blur(0px); }
-  100% { transform: translate(-50%, var(--hit-y, -600px)) scale(1.5) rotateX(65deg); opacity: 0; filter: blur(3px); }
-}
-
-/* Fast spin animation for service boxes before navigation */
 .spin-left {
   /* 0.5s is fast but long enough to see the blur and rotation */
   animation: spinBoxLeft 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards !important;
@@ -944,4 +815,100 @@ select:-webkit-autofill {
   -webkit-text-fill-color: #0a0a0a !important;
   caret-color: #0a0a0a !important;
   box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+/* Falling Stars Background */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.falling-star {
+  position: absolute;
+  top: -400px; /* Moved much higher so the 4x long tails don't spawn visibly on screen */
+  width: 2px;
+  /* height is now set dynamically in inline styles */
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.4), #00FFFF);
+  border-radius: 4px;
+  opacity: 0;
+}
+
+.falling-star::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -1.5px;
+  width: 5px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px #00FFFF, 0 0 16px 2px #00BFFF;
+}
+
+/* 5 different life spans and travel distances */
+@keyframes fall-1 {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(150vh); opacity: 0; }
+}
+
+@keyframes fall-2 {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { opacity: 0.8; }
+  60% { transform: translateY(85vh); opacity: 0; }
+  100% { transform: translateY(85vh); opacity: 0; }
+}
+
+@keyframes fall-3 {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  30% { opacity: 0.6; }
+  40% { transform: translateY(65vh); opacity: 0; }
+  100% { transform: translateY(65vh); opacity: 0; }
+}
+
+@keyframes fall-4 {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  70% { opacity: 1; }
+  80% { transform: translateY(115vh); opacity: 0; }
+  100% { transform: translateY(115vh); opacity: 0; }
+}
+
+@keyframes fall-5 {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.9; }
+  20% { opacity: 0.9; }
+  30% { transform: translateY(50vh); opacity: 0; }
+  100% { transform: translateY(50vh); opacity: 0; }
+}
+
+.type-1 { animation-name: fall-1; animation-timing-function: linear; animation-iteration-count: infinite; }
+.type-2 { animation-name: fall-2; animation-timing-function: linear; animation-iteration-count: infinite; }
+.type-3 { animation-name: fall-3; animation-timing-function: linear; animation-iteration-count: infinite; }
+.type-4 { animation-name: fall-4; animation-timing-function: linear; animation-iteration-count: infinite; }
+.type-5 { animation-name: fall-5; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+.layout-content {
+  position: relative;
+  z-index: 1;
+}
+
+#cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99998;
+  mix-blend-mode: screen;
 }
