@@ -1,0 +1,10 @@
+{
+  "description": "Transforms websites with vibrant, lava-like lettering and dynamic color schemes, enhancing visual appeal for businesses seeking a bold online presence.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
