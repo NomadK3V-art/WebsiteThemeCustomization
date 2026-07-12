@@ -69,7 +69,7 @@ export default function Home() {
       <p>Explore the ways SvelteRX can support you — from health coverage and concierge care to life insurance and retirement planning, most delivered through our one Private Healthcare Network. Learn about each and connect with a guide who explains it in plain language.</p>
     </div>
     
-    <div className="svc-featured">
+    <div className="svc-featured" id="glp1-featured">
       <div className="fl">
         <span className="ftag">★ Featured Program</span>
         <div className="fhead"><span className="fico">🌱</span><h3>GLP-1 Weight-Loss Program</h3></div>
@@ -79,12 +79,30 @@ export default function Home() {
           <li>Medications, coaching &amp; support in one price</li>
           <li>All your labs covered by your Concierge Plan</li>
         </ul>
+
+        <div className="glp-required">
+          <span className="req-badge">Required</span>
+          <p>The GLP-1 program is built on our Concierge Medicine Plan — you <strong>must be a Concierge member</strong> to enroll. It's the foundation that makes the doctor visits, labs, and medications possible.</p>
+        </div>
+
+        <div className="svc-secondary">
+          <div className="sec-head"><span className="sec-ico">🩺</span><h4>Included: Concierge Medicine</h4></div>
+          <p>Unlimited virtual care for one flat price — $149/mo covers up to 7 family members.</p>
+          <ul className="pts">
+            <li>Unlimited $0 telehealth with board-certified doctors</li>
+            <li>$0 labs, $0 meds &amp; an AI Doctor built in</li>
+            <li>The foundation your GLP-1 program is built on</li>
+          </ul>
+        </div>
       </div>
       <div className="fr">
         <a className="qualify-btn" href="/glp1-quiz/">✓ See if you qualify — 60 sec</a>
         <a className="svc-resource" href="/glp1/">🌱 The program &amp; the science</a>
         <a className="svc-resource" href="/glp1-cost/">💰 What GLP-1 really costs (2026)</a>
         <a className="svc-resource" href="/glp1/#results">📸 Before &amp; after: real results</a>
+        <div className="fr-divider"><span>Your Concierge Plan</span></div>
+        <a className="svc-resource" href="/concierge/">🩺 What's included &amp; why ~83% of issues are handled virtually</a>
+        <a className="svc-resource" href="/in-person-concierge/">🏥 In-person concierge: what it's like &amp; costs</a>
         <a className="more" href="/glp1/">Learn more →</a>
       </div>
     </div>
@@ -104,19 +122,6 @@ export default function Home() {
         <a className="svc-resource" href="/aca-history/">📜 The ACA &amp; your income: a brief history</a>
         <a className="svc-resource" href="/bundled-coverage/">🧩 How a bundled plan fills the gaps</a>
         <a className="more" href="#start">Let's talk →</a>
-      </div>
-      <div className="svc svc-con">
-        <div className="ico">🩺</div>
-        <h3>Concierge Medicine</h3>
-        <p>Unlimited virtual care for one flat price — $149/mo covers up to 7 family members.</p>
-        <ul className="pts">
-          <li>Unlimited $0 telehealth with board-certified doctors</li>
-          <li>$0 labs, $0 meds &amp; an AI Doctor built in</li>
-          <li>The foundation your GLP-1 program is built on</li>
-        </ul>
-        <a className="svc-resource" href="/concierge/">🩺 What's included &amp; why ~83% of health issues are handled virtually</a>
-        <a className="svc-resource" href="/in-person-concierge/">🏥 In-person concierge: what it's like &amp; what it costs</a>
-        <a className="more" href="/concierge/">Learn more →</a>
       </div>
       <div className="svc svc-li">
         <div className="ico">❤️</div>
