@@ -20,8 +20,8 @@ export const neonLava: Theme = {
     '--red': '#00BFFF',
     '--red-d': '#008B8B',
     '--ink': '#C0FFF0',
-    '--body': '#FFAA66',
-    '--muted': '#FF8822',
+    '--body': '#000000',
+    '--muted': '#000000',
     '--bg': '#05000A',
     '--lav': '#0D0025',
     '--lav2': '#1A0045',
@@ -36,9 +36,9 @@ export const neonLava: Theme = {
     '--card-shadow':
       '0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1)',
     '--elevation': '0 14px 34px rgba(103,49,161,.14), 0 4px 12px rgba(28,22,38,.07)',
-    '--body-glow':
-      '0 0 4px rgba(255, 220, 100, 1), 0 0 10px rgba(255, 120, 0, 0.85), 0 0 20px rgba(255, 60, 0, 0.7)',
-    '--muted-glow': '0 0 4px rgba(255, 180, 50, 0.9), 0 0 10px rgba(255, 100, 0, 0.75)',
+    // Burnt-orange text is matte (no glow)
+    '--body-glow': 'none',
+    '--muted-glow': 'none',
   },
 
   // The 7-stop rainbow cycle (R, O, Y, G, B, I, V). Cursor starts at Blue.
