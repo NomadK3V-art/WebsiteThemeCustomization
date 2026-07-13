@@ -40,7 +40,7 @@ export default function Home() {
     <div className="formcard" id="top">
       <h3 className="lava-text-sm">Let's find your fit</h3>
       <p className="sub">Tell us what you're interested in and we'll reach out.</p>
-      <div className="field"><label>First name</label><input type="text" placeholder="Your first name" /></div>
+      <div className="field"><label>Full name</label><input type="text" placeholder="Your full name" /></div>
       <div className="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
       <div className="field"><label>Phone</label><input type="tel" placeholder="(555) 555-5555" /></div>
       <div className="field"><label>I'm interested in</label>
@@ -48,8 +48,7 @@ export default function Home() {
           <option value="">Choose a service…</option>
           <option>Private Health Insurance</option>
           <option>Life Insurance</option>
-          <option>Concierge Medicine</option>
-          <option>GLP-1 Weight-Loss Program</option>
+          <option>Concierge Medicine &amp; GLP-1 Weight-Loss</option>
           <option>Dental &amp; Vision</option>
           <option>I'm not sure yet</option>
         </select>
@@ -222,7 +221,7 @@ export default function Home() {
     <div className="formcard">
       <h3 className="lava-text-sm">Get started today</h3>
       <p className="sub">A guide will follow up personally.</p>
-      <div className="field"><label>First name</label><input type="text" placeholder="Your first name" /></div>
+      <div className="field"><label>Full name</label><input type="text" placeholder="Your full name" /></div>
       <div className="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
       <div className="field"><label>Phone</label><input type="tel" placeholder="(555) 555-5555" /></div>
       <div className="field"><label>I'm interested in</label>
@@ -230,8 +229,7 @@ export default function Home() {
           <option value="">Choose a service…</option>
           <option>Private Health Insurance</option>
           <option>Life Insurance</option>
-          <option>Concierge Medicine</option>
-          <option>GLP-1 Weight-Loss Program</option>
+          <option>Concierge Medicine &amp; GLP-1 Weight-Loss</option>
           <option>Dental &amp; Vision</option>
           <option>I'm not sure yet</option>
         </select>

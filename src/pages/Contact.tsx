@@ -82,15 +82,14 @@ export default function Contact() {
               <form onSubmit={e => { e.preventDefault(); setSent(true) }} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 <h3 style={{  fontSize: '1.8rem', letterSpacing: '0.04em', marginBottom: '6px' }} className="lava-text-sm">SEND A MESSAGE</h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <input required placeholder="First Name" value={form.first} onChange={e => setForm({...form, first: e.target.value})} style={inp} />
+                  <input required placeholder="Full Name" value={form.first} onChange={e => setForm({...form, first: e.target.value})} style={inp} />
                   <input required type="email" placeholder="Email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={inp} />
                 </div>
                 <input required type="tel" placeholder="Phone Number" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} style={inp} />
                 <select value={form.interest} onChange={e => setForm({...form, interest: e.target.value})} style={{ ...inp, cursor: 'pointer' }}>
                   <option value="">I'm interested in...</option>
-                  <option>GLP-1 Weight-Loss</option>
+                  <option>Concierge Medicine &amp; GLP-1 Weight-Loss</option>
                   <option>Private Health Insurance</option>
-                  <option>Concierge Medicine</option>
                   <option>Life Insurance</option>
                   <option>Dental & Vision</option>
                   <option>Multiple Services</option>
