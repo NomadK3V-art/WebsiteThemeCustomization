@@ -19,10 +19,8 @@ const ENGINE = activeTheme.engine;
 let currentColorIndex = ENGINE.startColorIndex; // Start at Blue (index 4)
 document.body.style.setProperty('--cursor-bg', colors[currentColorIndex].headCore);
 document.body.style.setProperty('--cursor-shadow', colors[currentColorIndex].headShadow);
-// Text starts offset by 5 seconds (half a cycle), so we'll just initialize it here
-// but let the animation loop handle its transitions
-document.body.style.setProperty('--ink', colors[currentColorIndex].headCore);
-document.body.style.setProperty('--neon-shadow', colors[currentColorIndex].headShadow);
+// Text no longer cycles or glows — --ink / --neon-shadow are static readable
+// values set in index.css / the theme. Only the cursor still cycles color.
 
 // We will handle the canvas colors purely inside animate() so we can interpolate them!
 function parseColor(str) {
@@ -49,7 +47,6 @@ function lerpColor(c1, c2, t) {
 // Track start time to sync colors
 const appStartTime = Date.now();
 let lastCssIndex = currentColorIndex;
-let lastTextCssIndex = -1;
 
 
 
@@ -210,21 +207,8 @@ function animate() {
       }
     }
     
-    // Staggered text color cycle (offset by 5 seconds so they aren't matching the cursor)
-    const textElapsed = elapsed + ENGINE.textColorOffset;
-    const textCurrentCycle = Math.floor(textElapsed / cycleDuration);
-    const textBaseIndex = (ENGINE.startColorIndex + textCurrentCycle) % colors.length;
-    const textNextIndex = (textBaseIndex + 1) % colors.length;
-    const textPhase = textElapsed % cycleDuration;
+    // Text color no longer cycles — headings stay a static readable color.
 
-    if (textPhase > ENGINE.crossfadeStart) {
-      if (lastTextCssIndex !== textNextIndex) {
-        lastTextCssIndex = textNextIndex;
-        document.body.style.setProperty('--ink', colors[textNextIndex].headCore);
-        document.body.style.setProperty('--neon-shadow', colors[textNextIndex].headShadow);
-      }
-    }
-    
     const c1 = colors[baseIndex];
     const c2 = colors[nextIndex];
     

@@ -41,7 +41,7 @@ export default function Pricing() {
           </p>
           {/* TOGGLE */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '36px' }}>
-            <span style={{ color: annual ? '#8060b0' : '#FFE600',  fontWeight: 700, textShadow: annual ? 'none' : '0 0 8px #FF6000' }}>MONTHLY</span>
+            <span style={{ color: annual ? '#8060b0' : '#FFE600',  fontWeight: 700 }}>MONTHLY</span>
             <button
               onClick={() => setAnnual(!annual)}
               style={{
@@ -63,7 +63,7 @@ export default function Pricing() {
                 boxShadow: '0 0 8px #FF6000',
                 transition: 'all 0.3s' }} />
             </button>
-            <span style={{ color: annual ? '#FFE600' : '#8060b0',  fontWeight: 700, textShadow: annual ? '0 0 8px #FF6000' : 'none' }}>
+            <span style={{ color: annual ? '#FFE600' : '#8060b0',  fontWeight: 700 }}>
               ANNUAL <span style={{  fontSize: '0.8em' }}>SAVE 17%</span>
             </span>
           </div>

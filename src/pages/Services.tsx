@@ -111,7 +111,7 @@ export default function Services() {
                 <div>
                   <div style={{ fontSize: '2.8rem', marginBottom: '12px' }}>{s.icon}</div>
                   <h2 style={{  fontSize: 'clamp(1.6rem,3vw,2.2rem)', letterSpacing: '0.04em', marginBottom: '8px' }} className="lava-text-sm">{s.title}</h2>
-                  <p style={{ color: s.color,  fontWeight: 700, fontSize: '1rem', marginBottom: '18px', textShadow: `0 0 8px ${s.color}` }}>{s.subtitle}</p>
+                  <p style={{ color: s.color,  fontWeight: 700, fontSize: '1rem', marginBottom: '18px' }}>{s.subtitle}</p>
                   <p style={{   fontSize: '1.05rem', lineHeight: 1.75 }}>{s.desc}</p>
                 </div>
                 <div>

@@ -14,9 +14,9 @@
   --purple-d: #0D0020;
   --red: #00BFFF;
   --red-d: #008B8B;
-  --ink: #C0FFF0;      /* dynamic — headings/neon; updated by color cycle */
-  --body: #000000;     /* body copy — solid black */
-  --muted: #000000;    /* fine print — solid black */
+  --ink: #FFFFFF;      /* headings — solid white, readable on dark surfaces */
+  --body: #FFFFFF;     /* body copy — white on the dark surfaces */
+  --muted: #F0F0F0;    /* fine print — near-white on dark surfaces */
   --bg: #05000A;
   --lav: #0D0025;
   --lav2: #1A0045;
@@ -26,8 +26,8 @@
   --display: 'Yeseva One', serif;
   --ui: 'Rajdhani', sans-serif;
 
-  /* Neon glow (dynamic — updated by color cycle) */
-  --neon-shadow: 0 0 4px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4);
+  /* Glow disabled — letters are flat and readable, no neon */
+  --neon-shadow: none;
   --neon-stroke: 0;
 
   /* Surfaces — shared box / card treatment */
@@ -277,7 +277,7 @@ h1, h2, h3, .logo b, .logo b span, .foot-logo b, .foot-logo b span, .hero h1 em 
   background: linear-gradient(135deg, #FF1493 0%, #8B0066 45%, #1A0040 100%) !important;
   border: 1px solid rgba(255, 20, 147, 0.6) !important;
   color: var(--ink) !important;
-  text-shadow: 0 0 8px #00FFFF !important;
+  text-shadow: none !important;
 }
 
 .hero {
@@ -395,8 +395,8 @@ footer {
 }
 
 .svc a.more, .svc-featured .fr .more {
-  color: #00FFFF !important;
-  text-shadow: 0 0 8px #00BFFF !important;
+  color: var(--ink) !important;
+  text-shadow: none !important;
   font-size: 1.4rem !important;
   padding: 10px 24px !important;
   font-family: var(--display) !important;

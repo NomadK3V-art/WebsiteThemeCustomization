@@ -47,8 +47,7 @@ export default function Portfolio() {
                   borderRadius: '9999px',
                   border: 'none',
                   color: 'var(--ink)',
-                  
-                  textShadow: active === cat ? '0 0 10px #FF6000, 0 0 20px #FFB300' : '0 0 6px #FF6000',
+                  textShadow: 'none',
                   background: active === cat
                     ? 'linear-gradient(135deg, #FF3399 0%, #7B0060 60%, #1A0040 100%)'
                     : 'linear-gradient(135deg, #FF1493 0%, #5B0045 60%, #0D0025 100%)',
