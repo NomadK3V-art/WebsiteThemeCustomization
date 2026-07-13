@@ -1,22 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Rajdhani:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
 
+  /* ═══════════════════════════════════════════════════════════════════════
+     DESIGN TOKENS — single source of truth for the "neon lava" look.
+     Everything visual is expressed here so the design can be retuned (or, later,
+     swapped for another saved preset) from one place. The dynamic --ink,
+     --neon-shadow, and --cursor-* tokens are overwritten at runtime by the
+     rainbow color cycle in main.tsx; the values below are their starting frame.
+     ═══════════════════════════════════════════════════════════════════════ */
   :root {
+  /* Brand / base palette */
   --purple: #1A0040;
   --purple-d: #0D0020;
   --red: #00BFFF;
   --red-d: #008B8B;
-  --ink: #C0FFF0;
-  --body: #FFAA66;
-  --muted: #FF8822;
+  --ink: #C0FFF0;      /* dynamic — headings/neon; updated by color cycle */
+  --body: #FFAA66;     /* burnt-orange body copy */
+  --muted: #FF8822;    /* dimmer orange for fine print */
   --bg: #05000A;
   --lav: #0D0025;
   --lav2: #1A0045;
-  --line: rgba(180, 0, 255, 0.35);
+  --line: rgba(180, 0, 255, 0.35);  /* neon-purple hairline borders */
+
+  /* Typography */
   --display: 'Yeseva One', serif;
   --ui: 'Rajdhani', sans-serif;
+
+  /* Neon glow (dynamic — updated by color cycle) */
   --neon-shadow: 0 0 4px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4);
   --neon-stroke: 0;
+
+  /* Surfaces — shared box / card treatment */
+  --box-gradient: linear-gradient(145deg, #1A0045 0%, #440088 40%, #5D15A6 80%, #7B2CBF 100%);
+  --card-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1);
+  --elevation: 0 14px 34px rgba(103,49,161,.14), 0 4px 12px rgba(28,22,38,.07);
+
+  /* Burnt-orange text glow (body vs. muted fine print) */
+  --body-glow: 0 0 4px rgba(255, 220, 100, 1), 0 0 10px rgba(255, 120, 0, 0.85), 0 0 20px rgba(255, 60, 0, 0.7);
+  --muted-glow: 0 0 4px rgba(255, 180, 50, 0.9), 0 0 10px rgba(255, 100, 0, 0.75);
 }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--ui);color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -247,9 +268,9 @@ h1, h2, h3, .logo b, .logo b span, .foot-logo b, .foot-logo b span, .hero h1 em 
 
 .svc, .formcard, .why-item, .step, .oe-card, .news-card, .dv-bar {
   transform-style: preserve-3d;
-  background: linear-gradient(145deg, #1A0045 0%, #440088 40%, #5D15A6 80%, #7B2CBF 100%) !important;
+  background: var(--box-gradient) !important;
   border: 1px solid var(--line) !important;
-  box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
+  box-shadow: var(--card-shadow) !important;
 }
 
 .btn-primary, .qualify-btn, .dv-btn {
@@ -332,9 +353,9 @@ footer {
 
 .svc-featured {
   transform-style: preserve-3d;
-  background: linear-gradient(145deg, #1A0045 0%, #440088 40%, #5D15A6 80%, #7B2CBF 100%) !important;
+  background: var(--box-gradient) !important;
   border: 1px solid var(--line) !important;
-  box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
+  box-shadow: var(--card-shadow) !important;
 }
 .svc-featured .fl { background: transparent !important; }
 .svc-featured .fr { background: rgba(0, 0, 0, 0.3) !important; border-left: 1px solid var(--line) !important; }
@@ -390,7 +411,7 @@ footer {
 .svc, .oe-card {
   background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
   border: 1px solid var(--line) !important;
-  box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
+  box-shadow: var(--card-shadow) !important;
 }
 
 /* Ensure the purple variant doesn't override */
@@ -437,13 +458,13 @@ body, p, li, .disclaimer, .formnote, .trustline, .news-meta, .news-loading, .inf
   font-weight: 500 !important;
   letter-spacing: 0.02em;
   /* Intense, deep 'slow burn' glow with yellow core and red outer */
-  text-shadow: 0 0 4px rgba(255, 220, 100, 1), 0 0 10px rgba(255, 120, 0, 0.85), 0 0 20px rgba(255, 60, 0, 0.7) !important;
+  text-shadow: var(--body-glow) !important;
 }
 .formnote, .trustline, .disclaimer, .disclaimer .fine, .news-meta, .news-loading, .informed-disc, .foot-grid p {
   color: var(--muted) !important;
   font-family: 'Playfair Display', serif !important;
   font-weight: 400 !important;
-  text-shadow: 0 0 4px rgba(255, 180, 50, 0.9), 0 0 10px rgba(255, 100, 0, 0.75) !important;
+  text-shadow: var(--muted-glow) !important;
 }
 footer { color: var(--body) !important; }
 
@@ -694,20 +715,22 @@ body.navigating::after {
 .ftag-clone {
   display: inline-block;
   font-family: var(--ui) !important;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
+  font-size: 13px;
+  font-weight: 900 !important;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: #fff !important;
+  /* Same rainbow color-cycle as all other neon letters (updates at runtime) */
+  color: var(--ink) !important;
   text-decoration: none !important;
-  text-shadow: none !important;
+  text-shadow: var(--neon-shadow) !important;
+  -webkit-text-stroke: var(--neon-stroke) !important;
   background: linear-gradient(135deg, var(--purple), var(--red));
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 8px 18px;
   border-radius: 100px;
   box-shadow: 0 4px 14px rgba(103, 49, 161, 0.30), 0 0 16px rgba(0, 191, 255, 0.25);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, color 1s ease, text-shadow 1s ease;
 }
 .ftag-clone:hover {
   transform: translateY(-1px) scale(1.02);

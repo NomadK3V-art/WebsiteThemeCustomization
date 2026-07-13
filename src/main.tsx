@@ -2,74 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
+import { getActiveTheme, applyThemeTokens } from './themes'
 
-const colors = [
-  { // Red
-    coreRgba: 'rgba(255, 192, 192, 1)',
-    mid: 'rgba(255, 0, 100, 0.6)',
-    tailStart: 'rgba(255, 0, 0, 0)',
-    shadowOuter: '#FF0044',
-    shadowInner: '#FF0000',
-    headCore: '#FFC0D0',
-    headShadow: '0 0 6px rgba(255, 50, 100, 0.8), 0 0 12px rgba(255, 0, 50, 0.6), 0 0 20px rgba(255, 0, 0, 0.4)'
-  },
-  { // Orange
-    coreRgba: 'rgba(255, 224, 192, 1)',
-    mid: 'rgba(255, 120, 0, 0.6)',
-    tailStart: 'rgba(255, 100, 0, 0)',
-    shadowOuter: '#FF8800',
-    shadowInner: '#FF4400',
-    headCore: '#FFE0C0',
-    headShadow: '0 0 6px rgba(255, 150, 50, 0.8), 0 0 12px rgba(255, 100, 0, 0.6), 0 0 20px rgba(255, 50, 0, 0.4)'
-  },
-  { // Yellow
-    coreRgba: 'rgba(255, 255, 192, 1)',
-    mid: 'rgba(255, 255, 0, 0.6)',
-    tailStart: 'rgba(255, 200, 0, 0)',
-    shadowOuter: '#FFCC00',
-    shadowInner: '#FFFF00',
-    headCore: '#FFFFC0',
-    headShadow: '0 0 6px rgba(255, 255, 100, 0.8), 0 0 12px rgba(255, 255, 0, 0.6), 0 0 20px rgba(255, 200, 0, 0.4)'
-  },
-  { // Green
-    coreRgba: 'rgba(192, 255, 192, 1)',
-    mid: 'rgba(0, 255, 100, 0.6)',
-    tailStart: 'rgba(0, 200, 0, 0)',
-    shadowOuter: '#00FF44',
-    shadowInner: '#00FF00',
-    headCore: '#C0FFD0',
-    headShadow: '0 0 6px rgba(50, 255, 100, 0.8), 0 0 12px rgba(0, 255, 50, 0.6), 0 0 20px rgba(0, 255, 0, 0.4)'
-  },
-  { // Blue (original ink blue)
-    coreRgba: 'rgba(192, 255, 240, 1)',
-    mid: 'rgba(0, 255, 240, 0.6)',
-    tailStart: 'rgba(0, 200, 255, 0)',
-    shadowOuter: '#00BFFF',
-    shadowInner: '#00FFFF',
-    headCore: '#C0FFF0',
-    headShadow: '0 0 6px rgba(0, 255, 200, 0.8), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4)'
-  },
-  { // Indigo
-    coreRgba: 'rgba(192, 192, 255, 1)',
-    mid: 'rgba(100, 0, 255, 0.6)',
-    tailStart: 'rgba(50, 0, 255, 0)',
-    shadowOuter: '#4400FF',
-    shadowInner: '#8800FF',
-    headCore: '#D0C0FF',
-    headShadow: '0 0 6px rgba(150, 100, 255, 0.8), 0 0 12px rgba(100, 50, 255, 0.6), 0 0 20px rgba(50, 0, 255, 0.4)'
-  },
-  { // Violet
-    coreRgba: 'rgba(255, 192, 255, 1)',
-    mid: 'rgba(255, 0, 255, 0.6)',
-    tailStart: 'rgba(200, 0, 255, 0)',
-    shadowOuter: '#FF00FF',
-    shadowInner: '#FF00BB',
-    headCore: '#FFC0FF',
-    headShadow: '0 0 6px rgba(255, 100, 255, 0.8), 0 0 12px rgba(255, 50, 255, 0.6), 0 0 20px rgba(200, 0, 255, 0.4)'
-  }
-];
+// Load the currently-active saved design (see src/themes/index.ts to swap
+// seasons). Its tokens are written to :root; its palette + engine drive the
+// animation below.
+const activeTheme = getActiveTheme()
+applyThemeTokens(activeTheme)
 
-let currentColorIndex = 4; // Start at Blue (index 4)
+const colors = activeTheme.palette
+
+// Motion/behavior tuning comes from the active theme (the "how it performs"
+// half of the design). Swap seasons in src/themes/index.ts.
+const ENGINE = activeTheme.engine;
+
+let currentColorIndex = ENGINE.startColorIndex; // Start at Blue (index 4)
 document.body.style.setProperty('--cursor-bg', colors[currentColorIndex].headCore);
 document.body.style.setProperty('--cursor-shadow', colors[currentColorIndex].headShadow);
 // Text starts offset by 5 seconds (half a cycle), so we'll just initialize it here
@@ -162,12 +109,12 @@ setInterval(() => {
 }, 1000);
 
 let bouncingDrops: any[] = [];
-const dropLifespans = [5000, 7000, 10000, 15000];
+const dropLifespans = ENGINE.drops.lifespans;
 
 // Spawn Bouncing Drops periodically
 setInterval(() => {
   // High drop rate: 85% chance every 300ms
-  if (Math.random() < 0.85) {
+  if (Math.random() < ENGINE.drops.spawnChance) {
     bouncingDrops.push({
       x: Math.random() * window.innerWidth,
       y: -50,
@@ -181,7 +128,7 @@ setInterval(() => {
       boxFriction: 0.75 + Math.random() * 0.24 // Ranges from 0.75 (stops fast) to 0.99 (rolls off edge)
     });
   }
-}, 300);
+}, ENGINE.drops.spawnIntervalMs);
 
 
 function animate() {
@@ -192,14 +139,14 @@ function animate() {
   // Decay velocity if mouse stopped
   if (now - lastTime > 20) {
     // Slower decay (0.95 instead of 0.85) makes the tail last longer
-    velocityX *= 0.992;
-    velocityY *= 0.992;
+    velocityX *= ENGINE.cursor.velocityDecay;
+    velocityY *= ENGINE.cursor.velocityDecay;
   }
 
   // Calculate target length based on speed
   let speed = Math.sqrt(velocityX*velocityX + velocityY*velocityY);
-  let targetLength = speed * 1000; 
-  if (targetLength > 4000) targetLength = 4000; // Super long trail // Even longer tail // Max ~14 inches (quadruple original length)
+  let targetLength = speed * ENGINE.cursor.trailSpeedScale;
+  if (targetLength > ENGINE.cursor.maxTrailLength) targetLength = ENGINE.cursor.maxTrailLength; // Super long trail
   
   // Constantly add current mouse position so the head is always attached
   if (mouseX >= 0 && mouseY >= 0) {
@@ -242,18 +189,18 @@ function animate() {
     // Determine active colors based on 10s cycle
     const nowMs = Date.now();
     const elapsed = nowMs - appStartTime;
-    const cycleDuration = 10000;
+    const cycleDuration = ENGINE.cycleDuration;
     const currentCycle = Math.floor(elapsed / cycleDuration);
-    
-    const baseIndex = (4 + currentCycle) % colors.length;
+
+    const baseIndex = (ENGINE.startColorIndex + currentCycle) % colors.length;
     const nextIndex = (baseIndex + 1) % colors.length;
     
     const phase = elapsed % cycleDuration;
     let fadeFactor = 0;
     
     // Start crossfade at 9000ms (last 1 second of the cycle)
-    if (phase > 9000) {
-      fadeFactor = (phase - 9000) / 1000;
+    if (phase > ENGINE.crossfadeStart) {
+      fadeFactor = (phase - ENGINE.crossfadeStart) / (cycleDuration - ENGINE.crossfadeStart);
       
       // Trigger CSS transition if we haven't already for this crossfade
       if (lastCssIndex !== nextIndex) {
@@ -264,13 +211,13 @@ function animate() {
     }
     
     // Staggered text color cycle (offset by 5 seconds so they aren't matching the cursor)
-    const textElapsed = elapsed + 5000;
+    const textElapsed = elapsed + ENGINE.textColorOffset;
     const textCurrentCycle = Math.floor(textElapsed / cycleDuration);
-    const textBaseIndex = (4 + textCurrentCycle) % colors.length;
+    const textBaseIndex = (ENGINE.startColorIndex + textCurrentCycle) % colors.length;
     const textNextIndex = (textBaseIndex + 1) % colors.length;
     const textPhase = textElapsed % cycleDuration;
-    
-    if (textPhase > 9000) {
+
+    if (textPhase > ENGINE.crossfadeStart) {
       if (lastTextCssIndex !== textNextIndex) {
         lastTextCssIndex = textNextIndex;
         document.body.style.setProperty('--ink', colors[textNextIndex].headCore);
@@ -319,8 +266,8 @@ function animate() {
 
 
   // --- Bouncing Drops Logic ---
-  const gravity = 0.6;
-  const bounceLoss = 0.65;
+  const gravity = ENGINE.drops.gravity;
+  const bounceLoss = ENGINE.drops.bounceLoss;
   
   for (let i = bouncingDrops.length - 1; i >= 0; i--) {
     const d = bouncingDrops[i];
@@ -369,7 +316,7 @@ function animate() {
       if (!onSurface && d.y > canvas.height - 2) {
         d.y = canvas.height - 2;
         if (d.vy > 0) d.vy *= -bounceLoss;
-        d.vx *= 0.85; // Heavier ground friction
+        d.vx *= ENGINE.drops.groundFriction; // Heavier ground friction
         
         if (Math.abs(d.vy) < 0.8) {
           d.vy = 0;
@@ -392,8 +339,8 @@ function animate() {
     
     // Calculate speed for tail length
     const dSpeed = Math.sqrt(d.vx*d.vx + d.vy*d.vy);
-    let dTargetLength = dSpeed * 45; // Longer tail, more like cursor
-    if (dTargetLength > 300) dTargetLength = 300;
+    let dTargetLength = dSpeed * ENGINE.drops.trailSpeedScale; // Longer tail, more like cursor
+    if (dTargetLength > ENGINE.drops.maxTrailLength) dTargetLength = ENGINE.drops.maxTrailLength;
     if (d.settled) dTargetLength = 0; // shrink tail when settled
     
     let dCurrentLength = 0;
