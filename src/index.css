@@ -574,13 +574,14 @@ body::after {
   left: var(--cursor-x, -100px);
   width: 8px;
   height: 8px;
-  background: #C0FFF0; 
+  background: var(--cursor-bg, #C0FFF0); 
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 99999;
-  box-shadow: 0 0 6px rgba(0, 255, 200, 0.8), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4);
+  box-shadow: var(--cursor-shadow, 0 0 6px rgba(0, 255, 200, 0.8), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4));
   mix-blend-mode: screen;
+  transition: background 1s ease, box-shadow 1s ease;
 }
 
 /* Hide cursor & tail when navigating */
@@ -817,6 +818,24 @@ select:-webkit-autofill {
   box-shadow: 0 0 0 1000px #ffffff inset !important;
 }
 
+
+
+.layout-content {
+  position: relative;
+  z-index: 1;
+}
+
+#cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99998;
+  mix-blend-mode: screen;
+}
+
 /* Falling Stars Background */
 .stars-container {
   position: fixed;
@@ -831,9 +850,8 @@ select:-webkit-autofill {
 
 .falling-star {
   position: absolute;
-  top: -400px; /* Moved much higher so the 4x long tails don't spawn visibly on screen */
+  top: -400px;
   width: 2px;
-  /* height is now set dynamically in inline styles */
   background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.4), #00FFFF);
   border-radius: 4px;
   opacity: 0;
@@ -896,19 +914,3 @@ select:-webkit-autofill {
 .type-3 { animation-name: fall-3; animation-timing-function: linear; animation-iteration-count: infinite; }
 .type-4 { animation-name: fall-4; animation-timing-function: linear; animation-iteration-count: infinite; }
 .type-5 { animation-name: fall-5; animation-timing-function: linear; animation-iteration-count: infinite; }
-
-.layout-content {
-  position: relative;
-  z-index: 1;
-}
-
-#cursor-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 99998;
-  mix-blend-mode: screen;
-}
