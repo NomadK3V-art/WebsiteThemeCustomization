@@ -192,14 +192,14 @@ function animate() {
   // Decay velocity if mouse stopped
   if (now - lastTime > 20) {
     // Slower decay (0.95 instead of 0.85) makes the tail last longer
-    velocityX *= 0.98;
-    velocityY *= 0.98;
+    velocityX *= 0.992;
+    velocityY *= 0.992;
   }
 
   // Calculate target length based on speed
   let speed = Math.sqrt(velocityX*velocityX + velocityY*velocityY);
-  let targetLength = speed * 600; 
-  if (targetLength > 2400) targetLength = 2400; // Even longer tail // Max ~14 inches (quadruple original length)
+  let targetLength = speed * 1000; 
+  if (targetLength > 4000) targetLength = 4000; // Super long trail // Even longer tail // Max ~14 inches (quadruple original length)
   
   // Constantly add current mouse position so the head is always attached
   if (mouseX >= 0 && mouseY >= 0) {

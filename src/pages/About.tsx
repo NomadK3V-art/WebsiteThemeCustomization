@@ -10,7 +10,7 @@ export default function About() {
           <div className="lava-pill" style={{ display: 'inline-block', padding: '5px 18px', marginBottom: '24px',  fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.2em' }}>
             ABOUT SVELTERX
           </div>
-          <h1 style={{  fontSize: 'clamp(2.5rem,7vw,5.5rem)', lineHeight: 1.05, letterSpacing: '0.03em', marginBottom: '24px' }}>
+          <h1 style={{  fontSize: 'clamp(2.5rem,7vw,5.5rem)', lineHeight: 1.05, letterSpacing: '0.03em', marginBottom: '24px' }} className="lava-text">
             Real guidance,<br />
             <span style={{ color: 'var(--ink)',   fontStyle: 'italic' }}>from a real person.</span>
           </h1>

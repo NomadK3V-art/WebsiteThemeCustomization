@@ -27,7 +27,7 @@ export default function Home() {
   <div className="wrap hero-grid">
     <div>
       <span className="eyebrow">Health &amp; Wellness, Personally Guided</span>
-      <h1>Your health, <em>handled with care.</em></h1>
+      <h1 className="lava-text">Your health, <em>handled with care.</em></h1>
       <p className="lead">SvelteRX brings health and life insurance, concierge medicine, and a physician-guided weight-loss program together in one place — with a real person to walk you through your options.</p>
       <div className="ctas">
         <a href="#start" className="btn btn-primary">Explore your options</a>
@@ -38,7 +38,7 @@ export default function Home() {
 
     
     <div className="formcard" id="top">
-      <h3>Let's find your fit</h3>
+      <h3 className="lava-text-sm">Let's find your fit</h3>
       <p className="sub">Tell us what you're interested in and we'll reach out.</p>
       <div className="field"><label>First name</label><input type="text" placeholder="Your first name" /></div>
       <div className="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
@@ -65,14 +65,14 @@ export default function Home() {
   <div className="wrap">
     <div className="sec-head">
       <span className="eyebrow">What We Offer</span>
-      <h2>One place for your health, wellness &amp; financial future</h2>
+      <h2 className="lava-text">One place for your health, wellness &amp; financial future</h2>
       <p>Explore the ways SvelteRX can support you — from health coverage and concierge care to life insurance and retirement planning. Learn about each and connect with a guide who explains it in plain language.</p>
     </div>
     
     <div className="svc-featured" id="glp1-featured">
       <div className="fl">
         <span className="ftag">★ Featured Program</span>
-        <div className="fhead"><span className="fico">🌱</span><h3>GLP-1 Weight-Loss Program</h3></div>
+        <div className="fhead"><span className="fico">🌱</span><h3 className="lava-text-sm">GLP-1 Weight-Loss Program</h3></div>
         <p>Doctor-guided, all-inclusive weight loss that pairs proven GLP-1 medications with real human support — built on your Concierge Plan, with your labs covered.</p>
         <ul className="pts">
           <li>Physician-guided, all-inclusive care</li>
@@ -111,7 +111,7 @@ export default function Home() {
     <div className="services">
       <div className="svc svc-phi">
         <div className="ico">🛡️</div>
-        <h3>Private Health Insurance</h3>
+        <h3 className="lava-text-sm">Private Health Insurance</h3>
         <p>Coverage that fits your life and budget — with a licensed agent in your corner, at no extra cost to you.</p>
         <ul className="pts">
           <li>Individual, family &amp; self-employed plans</li>
@@ -125,7 +125,7 @@ export default function Home() {
       </div>
       <div className="svc svc-li">
         <div className="ico">❤️</div>
-        <h3>Life Insurance</h3>
+        <h3 className="lava-text-sm">Life Insurance</h3>
         <p>Protect the people who count on you — and see how life insurance can fit into a smart, long-term plan.</p>
         <ul className="pts">
           <li>Term &amp; permanent options</li>
@@ -142,7 +142,7 @@ export default function Home() {
       <div className="dv-left">
         <div className="dv-ico">🦷</div>
         <div>
-          <h3>Dental &amp; Vision plans</h3>
+          <h3 className="lava-text-sm">Dental &amp; Vision plans</h3>
           <p>Build your own dental &amp; vision plan and enroll online in minutes — you can do it all yourself.</p>
         </div>
       </div>
@@ -156,13 +156,13 @@ export default function Home() {
   <div className="wrap">
     <div className="sec-head">
       <span className="eyebrow">Why SvelteRX</span>
-      <h2>Health decisions feel better with a guide</h2>
+      <h2 className="lava-text">Health decisions feel better with a guide</h2>
       <p>We built SvelteRX around one belief: you deserve clear information, quality options, and a real person who picks up the phone.</p>
     </div>
     <div className="why-grid">
-      <div className="why-item"><div className="n">A</div><h3>A real guide</h3><p>Work directly with a licensed professional who explains your options in plain terms — not a call center.</p></div>
-      <div className="why-item"><div className="n">B</div><h3>Everything in one place</h3><p>Coverage, concierge care, and wellness under one roof, so you're not juggling a dozen companies.</p></div>
-      <div className="why-item"><div className="n">C</div><h3>Built around you</h3><p>We start with what you need and where you are — then help you find what actually fits your life.</p></div>
+      <div className="why-item"><div className="n">A</div><h3 className="lava-text-sm">A real guide</h3><p>Work directly with a licensed professional who explains your options in plain terms — not a call center.</p></div>
+      <div className="why-item"><div className="n">B</div><h3 className="lava-text-sm">Everything in one place</h3><p>Coverage, concierge care, and wellness under one roof, so you're not juggling a dozen companies.</p></div>
+      <div className="why-item"><div className="n">C</div><h3 className="lava-text-sm">Built around you</h3><p>We start with what you need and where you are — then help you find what actually fits your life.</p></div>
     </div>
   </div>
 </section>
@@ -172,7 +172,7 @@ export default function Home() {
   <div className="wrap">
     <div className="sec-head">
       <span className="eyebrow">Stay Informed</span>
-      <h2>Health insurance keeps changing — stay ahead of it</h2>
+      <h2 className="lava-text">Health insurance keeps changing — stay ahead of it</h2>
       <p>Premiums, subsidies, and enrollment rules shift every year. Here's your countdown to Open Enrollment, plus the latest headlines on what's changing and why.</p>
     </div>
     <div className="informed-grid">
@@ -184,7 +184,7 @@ export default function Home() {
         <a className="oe-btn" href="#start">Get help enrolling →</a>
       </div>
       <div className="news-card">
-        <div className="news-head"><h3>Latest health insurance news</h3><span className="news-live">● LIVE</span></div>
+        <div className="news-head"><h3 className="lava-text-sm">Latest health insurance news</h3><span className="news-live">● LIVE</span></div>
         <div id="newsList" className="news-list"><div className="news-loading">Loading the latest headlines…</div></div>
         <a className="news-more" id="newsMore" href="https://news.google.com/search?q=health%20insurance" target="_blank" rel="noopener">See more news →</a>
       </div>
@@ -198,13 +198,13 @@ export default function Home() {
   <div className="wrap">
     <div className="sec-head">
       <span className="eyebrow">How It Works</span>
-      <h2>Getting started is simple</h2>
+      <h2 className="lava-text">Getting started is simple</h2>
       <p>Three easy steps — at your pace, with no obligation.</p>
     </div>
     <div className="steps">
-      <div className="step"><div className="num">01</div><h3>Tell us what you need</h3><p>Pick a service and share a few details so we understand where you're starting from.</p></div>
-      <div className="step"><div className="num">02</div><h3>Talk with a guide</h3><p>A licensed professional walks you through your options and answers every question in plain language.</p></div>
-      <div className="step"><div className="num">03</div><h3>Get set up</h3><p>Move forward with what fits — and keep our support for whatever comes next.</p></div>
+      <div className="step"><div className="num">01</div><h3 className="lava-text-sm">Tell us what you need</h3><p>Pick a service and share a few details so we understand where you're starting from.</p></div>
+      <div className="step"><div className="num">02</div><h3 className="lava-text-sm">Talk with a guide</h3><p>A licensed professional walks you through your options and answers every question in plain language.</p></div>
+      <div className="step"><div className="num">03</div><h3 className="lava-text-sm">Get set up</h3><p>Move forward with what fits — and keep our support for whatever comes next.</p></div>
     </div>
   </div>
 </section>
@@ -214,13 +214,13 @@ export default function Home() {
 <section id="start" className="cta">
   <div className="wrap cta-grid">
     <div>
-      <h2>Ready to explore your options?</h2>
+      <h2 className="lava-text">Ready to explore your options?</h2>
       <p>Share what you're looking for and a guide will reach out. It's free to ask, and there's never any pressure.</p>
       <p >Prefer to pick a time? Grab a slot right on my calendar.</p>
       <a href="https://calendar.app.google/oPJUY6eeG7Rpvp2A8" target="_blank" rel="noopener" className="btn" >📅 Schedule a call</a>
     </div>
     <div className="formcard">
-      <h3>Get started today</h3>
+      <h3 className="lava-text-sm">Get started today</h3>
       <p className="sub">A guide will follow up personally.</p>
       <div className="field"><label>First name</label><input type="text" placeholder="Your first name" /></div>
       <div className="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
