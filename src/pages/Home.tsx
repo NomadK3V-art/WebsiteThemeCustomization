@@ -28,7 +28,7 @@ export default function Home() {
     <div>
       <span className="eyebrow">Health &amp; Wellness, Personally Guided</span>
       <h1>Your health, <em>handled with care.</em></h1>
-      <p className="lead">SvelteRX brings health and life insurance, concierge medicine, and a physician-guided weight-loss program together in one Private Healthcare Network — with a real person to walk you through your options.</p>
+      <p className="lead">SvelteRX brings health and life insurance, concierge medicine, and a physician-guided weight-loss program together in one place — with a real person to walk you through your options.</p>
       <div className="ctas">
         <a href="#start" className="btn btn-primary">Explore your options</a>
         <a href="#services" className="btn btn-ghost">See what we offer</a>
@@ -66,7 +66,7 @@ export default function Home() {
     <div className="sec-head">
       <span className="eyebrow">What We Offer</span>
       <h2>One place for your health, wellness &amp; financial future</h2>
-      <p>Explore the ways SvelteRX can support you — from health coverage and concierge care to life insurance and retirement planning, most delivered through our one Private Healthcare Network. Learn about each and connect with a guide who explains it in plain language.</p>
+      <p>Explore the ways SvelteRX can support you — from health coverage and concierge care to life insurance and retirement planning. Learn about each and connect with a guide who explains it in plain language.</p>
     </div>
     
     <div className="svc-featured" id="glp1-featured">
@@ -99,7 +99,7 @@ export default function Home() {
         <a className="qualify-btn" href="/glp1-quiz/">✓ See if you qualify — 60 sec</a>
         <a className="svc-resource" href="/glp1/">🌱 The program &amp; the science</a>
         <a className="svc-resource" href="/glp1-cost/">💰 What GLP-1 really costs (2026)</a>
-        <a className="svc-resource" href="/glp1/#results">📸 Before &amp; after: real results</a>
+        <a className="svc-resource" href="/glp1/#results">📸 Before &amp; after: coming soon</a>
         <div className="fr-divider"><span>Your Concierge Plan</span></div>
         <a className="svc-resource" href="/concierge/">🩺 What's included &amp; why ~83% of issues are handled virtually</a>
         <a className="svc-resource" href="/in-person-concierge/">🏥 In-person concierge: what it's like &amp; costs</a>
@@ -249,7 +249,7 @@ export default function Home() {
     <div className="foot-grid">
       <div className="foot-logo">
         <b>Svelte<span>RX</span></b>
-        <p>Health &amp; wellness, personally guided. Health and life insurance, concierge medicine, and wellness — all delivered through one Private Healthcare Network.</p>
+        <p>Health &amp; wellness, personally guided. Health and life insurance, concierge medicine, and wellness.</p>
       </div>
       <div className="foot-col">
         <h4>Services</h4>
