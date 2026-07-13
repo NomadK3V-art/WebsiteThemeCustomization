@@ -24,7 +24,7 @@ export default function Testimonials() {
       <div className="lava-divider" />
 
       {/* AGGREGATE SCORE */}
-      <section style={{ padding: '50px 24px', background: 'rgba(13,0,32,0.5)', textAlign: 'center' }}>
+      <section style={{ padding: '50px 24px', background: 'rgba(123,44,191,0.15)', textAlign: 'center' }}>
         <div style={{  fontSize: '5rem', color: 'var(--ink)' }}>4.9 / 5</div>
         <div style={{  fontSize: '2rem', marginBottom: '8px' }}>★★★★★</div>
         <div style={{   fontSize: '1rem', letterSpacing: '0.1em' }}>ACROSS 150+ PROJECTS</div>

@@ -51,7 +51,7 @@ export default function Partners() {
             borderRadius: '24px',
             padding: '64px 40px',
             textAlign: 'center',
-            background: 'linear-gradient(135deg, #0D0025 0%, #1A0045 50%, #0D0025 100%)',
+            background: 'linear-gradient(135deg, #1A0045 0%, #7B2CBF 50%, #1A0045 100%)',
             border: '1px solid rgba(255,20,147,0.3)',
             boxShadow: '0 0 60px rgba(120,0,200,0.15)' }}>
             <h2 style={{  fontSize: 'clamp(2rem, 4vw, 3.5rem)', letterSpacing: '0.05em', marginBottom: '24px' }} className="lava-text">BECOME A PARTNER</h2>

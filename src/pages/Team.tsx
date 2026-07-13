@@ -33,7 +33,7 @@ export default function Team() {
               <div style={{
                 width: '80px', height: '80px',
                 borderRadius: '50%',
-                background: `linear-gradient(135deg, ${member.color} 0%, #1A0040 100%)`,
+                background: `linear-gradient(135deg, ${member.color} 0%, #7B2CBF 100%)`,
                 border: `2px solid ${member.color}80`,
                 boxShadow: `0 0 20px ${member.color}40`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',

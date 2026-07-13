@@ -72,6 +72,8 @@ const colors = [
 let currentColorIndex = 4; // Start at Blue (index 4)
 document.body.style.setProperty('--cursor-bg', colors[currentColorIndex].headCore);
 document.body.style.setProperty('--cursor-shadow', colors[currentColorIndex].headShadow);
+// Text starts offset by 5 seconds (half a cycle), so we'll just initialize it here
+// but let the animation loop handle its transitions
 document.body.style.setProperty('--ink', colors[currentColorIndex].headCore);
 document.body.style.setProperty('--neon-shadow', colors[currentColorIndex].headShadow);
 
@@ -100,6 +102,7 @@ function lerpColor(c1, c2, t) {
 // Track start time to sync colors
 const appStartTime = Date.now();
 let lastCssIndex = currentColorIndex;
+let lastTextCssIndex = -1;
 
 
 
@@ -257,9 +260,21 @@ function animate() {
         lastCssIndex = nextIndex;
         document.body.style.setProperty('--cursor-bg', colors[nextIndex].headCore);
         document.body.style.setProperty('--cursor-shadow', colors[nextIndex].headShadow);
-        // Map the text colors too!
-        document.body.style.setProperty('--ink', colors[nextIndex].headCore);
-        document.body.style.setProperty('--neon-shadow', colors[nextIndex].headShadow);
+      }
+    }
+    
+    // Staggered text color cycle (offset by 5 seconds so they aren't matching the cursor)
+    const textElapsed = elapsed + 5000;
+    const textCurrentCycle = Math.floor(textElapsed / cycleDuration);
+    const textBaseIndex = (4 + textCurrentCycle) % colors.length;
+    const textNextIndex = (textBaseIndex + 1) % colors.length;
+    const textPhase = textElapsed % cycleDuration;
+    
+    if (textPhase > 9000) {
+      if (lastTextCssIndex !== textNextIndex) {
+        lastTextCssIndex = textNextIndex;
+        document.body.style.setProperty('--ink', colors[textNextIndex].headCore);
+        document.body.style.setProperty('--neon-shadow', colors[textNextIndex].headShadow);
       }
     }
     

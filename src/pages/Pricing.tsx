@@ -47,7 +47,7 @@ export default function Pricing() {
               style={{
                 width: '56px', height: '28px',
                 borderRadius: '9999px',
-                background: annual ? 'linear-gradient(135deg, #FF1493, #7B00D4)' : '#1A0040',
+                background: annual ? 'linear-gradient(135deg, #FF1493, #7B2CBF)' : '#1A0040',
                 border: '1px solid rgba(255,20,147,0.5)',
                 cursor: 'pointer',
                 position: 'relative',

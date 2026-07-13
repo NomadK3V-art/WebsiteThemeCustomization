@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Damion&family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Rajdhani:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
 
   :root {
@@ -7,13 +7,13 @@
   --red: #00BFFF;
   --red-d: #008B8B;
   --ink: #C0FFF0;
-  --body: #FF8833;
-  --muted: #FF6600;
+  --body: #FFAA66;
+  --muted: #FF8822;
   --bg: #05000A;
   --lav: #0D0025;
   --lav2: #1A0045;
   --line: rgba(180, 0, 255, 0.35);
-  --display: 'Damion', cursive;
+  --display: 'Yeseva One', serif;
   --ui: 'Rajdhani', sans-serif;
   --neon-shadow: 0 0 4px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4);
   --neon-stroke: 0;
@@ -247,7 +247,7 @@ h1, h2, h3, .logo b, .logo b span, .foot-logo b, .foot-logo b span, .hero h1 em 
 
 .svc, .formcard, .why-item, .step, .oe-card, .news-card, .dv-bar {
   transform-style: preserve-3d;
-  background: linear-gradient(145deg, #05000A 0%, #0D0025 40%, #1A0045 80%, #220055 100%) !important;
+  background: linear-gradient(145deg, #1A0045 0%, #440088 40%, #5D15A6 80%, #7B2CBF 100%) !important;
   border: 1px solid var(--line) !important;
   box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
 }
@@ -332,7 +332,7 @@ footer {
 
 .svc-featured {
   transform-style: preserve-3d;
-  background: linear-gradient(145deg, #05000A 0%, #0D0025 40%, #1A0045 80%, #220055 100%) !important;
+  background: linear-gradient(145deg, #1A0045 0%, #440088 40%, #5D15A6 80%, #7B2CBF 100%) !important;
   border: 1px solid var(--line) !important;
   box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
 }
@@ -342,33 +342,35 @@ footer {
 /* Fix the resource links and tags inside the service boxes so they are neon and beautiful */
 .svc-featured .fr .svc-resource, .svc a.svc-resource {
   background: transparent !important;
-  border: 1px solid var(--line) !important;
+  border: 1px solid var(--ink) !important;
   
   font-size: 1.1rem !important;
   padding: 12px 16px !important;
   border-radius: 8px !important;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1) !important; /* Could leave this or make it var(--neon-shadow) but text color transition is key */
 }
 
 .svc-featured .fr .svc-resource:hover, .svc a.svc-resource:hover {
-  background: rgba(0, 191, 255, 0.15) !important;
-  border-color: #00FFFF !important;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+  background: transparent !important;
+  border-color: var(--ink) !important;
+  box-shadow: var(--neon-shadow) !important;
   transform: translateX(5px);
 }
 
 .svc-featured .ftag {
   background: transparent !important;
-  border: 1px solid #00FFFF !important;
-  color: #00FFFF !important;
-  text-shadow: 0 0 8px #00BFFF !important;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2) !important;
+  border: 1px solid var(--ink) !important;
+  color: var(--ink) !important;
+  text-shadow: var(--neon-shadow) !important;
+  box-shadow: var(--neon-shadow) !important;
+  transition: color 1s ease, text-shadow 1s ease, border-color 1s ease, box-shadow 1s ease;
 }
 
 .svc .ico, .dv-bar .dv-ico {
   background: transparent !important;
-  border: 1px solid var(--line) !important;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.2) !important;
+  border: 1px solid var(--ink) !important;
+  box-shadow: var(--neon-shadow) !important;
+  transition: border-color 1s ease, box-shadow 1s ease;
 }
 
 .svc a.more, .svc-featured .fr .more {
@@ -386,27 +388,29 @@ footer {
 
 /* Apply Purple_Night-1.jpg to .svc and .oe-card */
 .svc, .oe-card {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
   border: 1px solid var(--line) !important;
   box-shadow: 0 0 20px rgba(120, 0, 200, 0.15), inset 0 0 30px rgba(60, 0, 120, 0.1) !important;
 }
 
 /* Ensure the purple variant doesn't override */
 .svc.svc-purple {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
 }
 
 /* Reduce contrast of blue letters in all boxes */
 .svc-featured .fr .svc-resource, .svc a.svc-resource {
-  color: #C0FFF0 !important; /* Slightly more muted/softer light blue */
-  text-shadow: 0 0 4px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4) !important; /* Softer glow */
-  -webkit-text-stroke: 0 !important; /* Removing the stroke softens the text significantly */
+  color: var(--ink) !important;
+  text-shadow: var(--neon-shadow) !important;
+  -webkit-text-stroke: var(--neon-stroke) !important;
+  transition: color 1s ease, text-shadow 1s ease, border-color 1s ease, box-shadow 1s ease;
 }
 
 .svc a.more, .svc-featured .fr .more {
-  color: #A0FFEB !important; /* Muted cyan */
-  text-shadow: 0 0 6px rgba(0, 255, 180, 0.6), 0 0 12px rgba(0, 191, 255, 0.4) !important; /* Softer glow */
-  -webkit-text-stroke: 0 !important;
+  color: var(--ink) !important;
+  text-shadow: var(--neon-shadow) !important;
+  -webkit-text-stroke: var(--neon-stroke) !important;
+  transition: color 1s ease, text-shadow 1s ease;
 }
 
 /* Increase size of blue letters specifically in the GLP-1 box (.svc-featured) */
@@ -420,9 +424,10 @@ footer {
 
 .svc-featured .ftag {
   font-size: 13px !important; /* Increase the tag size slightly as well */
-  color: #B0FFF0 !important;
-  text-shadow: 0 0 6px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 191, 255, 0.5) !important;
-  border-color: rgba(0, 255, 255, 0.5) !important;
+  color: var(--ink) !important;
+  text-shadow: var(--neon-shadow) !important;
+  border-color: var(--ink) !important;
+  transition: color 1s ease, text-shadow 1s ease, border-color 1s ease;
 }
 
 /* Apply soft burnt orange glow to all non-heading text */
@@ -432,13 +437,13 @@ body, p, li, .disclaimer, .formnote, .trustline, .news-meta, .news-loading, .inf
   font-weight: 500 !important;
   letter-spacing: 0.02em;
   /* Intense, deep 'slow burn' glow with yellow core and red outer */
-  text-shadow: 0 0 3px rgba(255, 200, 50, 0.9), 0 0 8px rgba(255, 100, 0, 0.7), 0 0 16px rgba(255, 50, 0, 0.5) !important;
+  text-shadow: 0 0 4px rgba(255, 220, 100, 1), 0 0 10px rgba(255, 120, 0, 0.85), 0 0 20px rgba(255, 60, 0, 0.7) !important;
 }
 .formnote, .trustline, .disclaimer, .disclaimer .fine, .news-meta, .news-loading, .informed-disc, .foot-grid p {
   color: var(--muted) !important;
   font-family: 'Playfair Display', serif !important;
   font-weight: 400 !important;
-  text-shadow: 0 0 3px rgba(255, 160, 0, 0.7), 0 0 8px rgba(255, 80, 0, 0.6) !important;
+  text-shadow: 0 0 4px rgba(255, 180, 50, 0.9), 0 0 10px rgba(255, 100, 0, 0.75) !important;
 }
 footer { color: var(--body) !important; }
 
@@ -494,15 +499,16 @@ footer { color: var(--body) !important; }
 .oe-tag,
 .svc-featured .ftag {
   background: url('./imports/pills.jpg') center/cover no-repeat !important;
-  border: 1px solid rgba(180, 0, 255, 0.5) !important;
-  box-shadow: 0 0 15px rgba(180, 0, 255, 0.2) !important;
-  color: #F0D0FF !important; /* Bright pastel purple */
-  text-shadow: 0 0 6px rgba(180, 0, 255, 0.8), 0 0 12px rgba(139, 0, 255, 0.6) !important;
-  -webkit-text-stroke: 0 !important;
-  font-family: 'Damion', cursive !important;
-  font-size: 1.2rem !important;
+  border: 1px solid var(--ink) !important;
+  box-shadow: var(--neon-shadow) !important;
+  color: var(--ink) !important;
+  text-shadow: var(--neon-shadow) !important;
+  -webkit-text-stroke: var(--neon-stroke) !important;
+  transition: color 1s ease, text-shadow 1s ease, border-color 1s ease, box-shadow 1s ease;
+  font-family: 'Yeseva One', serif !important;
+  font-size: 1.4rem !important;
   font-weight: 400 !important;
-  letter-spacing: 1px !important;
+  letter-spacing: normal !important;
   text-transform: none !important;
 }
 
@@ -519,7 +525,7 @@ footer { color: var(--body) !important; }
   box-shadow: 0 0 20px rgba(180, 0, 255, 0.5) !important;
   transform: translateY(-2px);
   color: #FFFFFF !important;
-  text-shadow: 0 0 8px rgba(180, 0, 255, 0.9), 0 0 16px rgba(255, 0, 255, 0.7) !important;
+  text-shadow: var(--neon-shadow) !important;
 }
 
 /* Restore the cursive font for resource links inside service boxes */
@@ -539,22 +545,25 @@ h1, h2, h3, h4, .lava-text, .lava-text-sm, .logo b, .oe-num {
   text-shadow: var(--neon-shadow) !important;
   -webkit-text-stroke: var(--neon-stroke) !important;
   font-family: var(--display) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: 400 !important;
   transition: color 1s ease, text-shadow 1s ease;
 }
 
 /* Private Health Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-phi {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
 }
 
 /* Life Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-li {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
 }
 
 /* Concierge Medicine specific background using Con.jpg */
 .svc.svc-con {
-  background: linear-gradient(rgba(13, 0, 37, 0.7), rgba(13, 0, 37, 0.7)), url('./imports/gg.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/gg.jpg') center/cover no-repeat !important;
 }
 
 /* Animated Spark Effect on Button Hover */

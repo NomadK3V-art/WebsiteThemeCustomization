@@ -56,7 +56,7 @@ export default function Contact() {
               </div>
             ))}
 
-            <div style={{ marginTop: '28px', padding: '24px', background: 'linear-gradient(135deg,#0D0025,#1A0045)', border: '1px solid rgba(255,20,147,0.25)', borderRadius: '16px' }}>
+            <div style={{ marginTop: '28px', padding: '24px', background: 'linear-gradient(135deg,#1A0045,#7B2CBF)', border: '1px solid rgba(255,20,147,0.25)', borderRadius: '16px' }}>
               <h4 style={{ color: 'var(--ink)',    fontWeight: 700, fontSize: '1rem', letterSpacing: '0.1em', marginBottom: '12px' }}>PREFER TO BOOK DIRECTLY?</h4>
               <a
                 href="https://calendar.google.com"

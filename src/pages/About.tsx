@@ -58,7 +58,7 @@ export default function About() {
               maxWidth: '360px',
               aspectRatio: '1',
               borderRadius: '20px',
-              background: 'linear-gradient(145deg, #05000A 0%, #0D0025 40%, #1A0045 80%)',
+              background: 'linear-gradient(145deg, #1A0045 0%, #440088 40%, #7B2CBF 100%)',
               border: '1px solid rgba(255,20,147,0.35)',
               boxShadow: '0 0 40px rgba(120,0,200,0.2)',
               display: 'flex',
@@ -78,7 +78,7 @@ export default function About() {
       <div className="lava-divider" />
 
       {/* WHY WE EXIST */}
-      <section style={{ padding: 'clamp(60px,8vw,100px) 28px', background: 'rgba(13,0,32,0.45)' }}>
+      <section style={{ padding: 'clamp(60px,8vw,100px) 28px', background: 'rgba(123,44,191,0.15)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{  fontSize: 'clamp(2rem,4vw,3.2rem)', letterSpacing: '0.04em', marginBottom: '24px' }} className="lava-text">
             WHY SVELTERX EXISTS
