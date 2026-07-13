@@ -534,11 +534,12 @@ footer { color: var(--body) !important; }
   font-family: var(--display) !important;
 }
 
-h1, h2, h3, h4, .lava-text, .lava-text-sm {
+h1, h2, h3, h4, .lava-text, .lava-text-sm, .logo b, .oe-num {
   color: var(--ink) !important;
   text-shadow: var(--neon-shadow) !important;
   -webkit-text-stroke: var(--neon-stroke) !important;
   font-family: var(--display) !important;
+  transition: color 1s ease, text-shadow 1s ease;
 }
 
 /* Private Health Insurance specific background using the blue smoke from GLP-1 */

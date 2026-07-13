@@ -72,9 +72,8 @@ const colors = [
 let currentColorIndex = 4; // Start at Blue (index 4)
 document.body.style.setProperty('--cursor-bg', colors[currentColorIndex].headCore);
 document.body.style.setProperty('--cursor-shadow', colors[currentColorIndex].headShadow);
-// Re-hardcode ink and neon-shadow to their original aqua values
-document.body.style.setProperty('--ink', '#C0FFF0');
-document.body.style.setProperty('--neon-shadow', '0 0 4px rgba(0, 255, 200, 0.7), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4)');
+document.body.style.setProperty('--ink', colors[currentColorIndex].headCore);
+document.body.style.setProperty('--neon-shadow', colors[currentColorIndex].headShadow);
 
 // We will handle the canvas colors purely inside animate() so we can interpolate them!
 function parseColor(str) {
@@ -175,7 +174,8 @@ setInterval(() => {
       born: Date.now(),
       trail: [],
       settled: false,
-      colorIndex: Math.floor(Math.random() * colors.length)
+      colorIndex: Math.floor(Math.random() * colors.length),
+      boxFriction: 0.75 + Math.random() * 0.24 // Ranges from 0.75 (stops fast) to 0.99 (rolls off edge)
     });
   }
 }, 300);
@@ -257,6 +257,9 @@ function animate() {
         lastCssIndex = nextIndex;
         document.body.style.setProperty('--cursor-bg', colors[nextIndex].headCore);
         document.body.style.setProperty('--cursor-shadow', colors[nextIndex].headShadow);
+        // Map the text colors too!
+        document.body.style.setProperty('--ink', colors[nextIndex].headCore);
+        document.body.style.setProperty('--neon-shadow', colors[nextIndex].headShadow);
       }
     }
     
@@ -336,7 +339,7 @@ function animate() {
             d.y = box.top;
             if (d.vy > 0) d.vy *= -bounceLoss;
             
-            d.vx *= 0.995; // Almost zero friction so they roll right off the edge
+            d.vx *= d.boxFriction; // Uses individual drop friction so some roll off, some settle
             
             if (Math.abs(d.vy) < 0.8) {
               d.vy = 0;
