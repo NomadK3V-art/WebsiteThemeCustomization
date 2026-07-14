@@ -18,7 +18,7 @@ export default function Home() {
       <a href="/contact/">Contact</a>
       <a href="https://calendar.app.google/oPJUY6eeG7Rpvp2A8" target="_blank" rel="noopener">Book a Call</a>
     </nav>
-    <a href="#start" className="btn btn-primary">Get Started</a>
+    <a href="#glp1-featured" className="btn btn-primary flicker-pill">GLP-1</a>
   </div>
 </header>
 
@@ -70,7 +70,11 @@ export default function Home() {
     
     <div className="svc-featured" id="glp1-featured">
       <div className="fl">
-        <span className="ftag">★ Featured Program</span>
+        <span className="ftag">
+          {Array.from('★ Featured Program').map((ch, i) => (
+            <span key={i} className="gpill-flick">{ch === ' ' ? ' ' : ch}</span>
+          ))}
+        </span>
         <div className="fhead"><span className="fico">🌱</span><h3 className="lava-text-sm">GLP-1 Weight-Loss Program</h3></div>
         <p>Doctor-guided, all-inclusive weight loss that pairs proven GLP-1 medications with real human support — built on your Concierge Plan, with your labs covered.</p>
         <ul className="pts">
@@ -102,7 +106,7 @@ export default function Home() {
         <div className="fr-divider"><span>Your Concierge Plan</span></div>
         <a className="svc-resource" href="/concierge/">🩺 What's included &amp; why ~83% of issues are handled virtually</a>
         <a className="svc-resource" href="/in-person-concierge/">🏥 In-person concierge: what it's like &amp; costs</a>
-        <a className="lava-pill" href="https://portal.optimalmd.com/register/KEVIN10" target="_blank" rel="noopener" style={{ display: "block", textAlign: "center", marginTop: "4px", marginBottom: "4px", padding: "12px 16px", textDecoration: "none", fontSize: "1.1rem", borderRadius: "100px" }}>🔗 Concierge Plan</a>
+        <a className="lava-pill flicker-pill" href="https://portal.optimalmd.com/register/KEVIN10" target="_blank" rel="noopener" style={{ display: "block", textAlign: "center", marginTop: "4px", marginBottom: "4px", padding: "12px 16px", textDecoration: "none", fontSize: "1.1rem", borderRadius: "100px" }}>🔗 Concierge Plan</a>
         <a className="more" href="/glp1/">Learn more →</a>
       </div>
     </div>
@@ -177,7 +181,7 @@ export default function Home() {
     </div>
     <div className="informed-grid">
       <div className="oe-card">
-        <span className="oe-tag">Open Enrollment · 2027 Coverage</span>
+        <span className="oe-tag flicker-pill">Open Enrollment · 2027 Coverage</span>
         <Countdown />
         <div className="oe-dates">Nov 1 – Dec 15, 2026 · HealthCare.gov &amp; most states</div>
         <div className="oe-note">Some state marketplaces extend to Dec 31. Idaho opens Oct 15; Georgia opens Oct 19. Plans start Jan 1, 2027.</div>
@@ -217,7 +221,7 @@ export default function Home() {
       <h2 className="lava-text">Ready to explore your options?</h2>
       <p>Share what you're looking for and a guide will reach out. It's free to ask, and there's never any pressure.</p>
       <p >Prefer to pick a time? Grab a slot right on my calendar.</p>
-      <a href="https://calendar.app.google/oPJUY6eeG7Rpvp2A8" target="_blank" rel="noopener" className="btn" >📅 Schedule a call</a>
+      <a href="https://calendar.app.google/oPJUY6eeG7Rpvp2A8" target="_blank" rel="noopener" className="btn flicker-pill" >📅 Schedule a call</a>
     </div>
     <div className="formcard">
       <h3 className="lava-text-sm">Get started today</h3>

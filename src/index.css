@@ -1150,6 +1150,79 @@ header .logo .lm,
 .ftag-clone {
   font-family: 'Yeseva One', serif !important;
 }
+
+/* Per-letter "flicker to life" on the top Featured pill.
+   Each letter runs once (fill: forwards) and holds solid — no looping/color-cycle,
+   so the matte text rule is respected once the 2.5s intro is over. */
+/* Top Featured pill letters: flicker to life in Neon Aqua, then settle solid to
+   Hot Pink Neon — same behaviour as the GLP-1 service-box pill. Resting state
+   (between the JS-driven occasional re-flickers) is hot pink. */
+.pill-flick {
+  display: inline-block;
+  white-space: pre;
+  opacity: 1; /* resting */
+  color: #FF00FF; /* resting hot pink (animation drives aqua while flickering) */
+  -webkit-text-fill-color: #FF00FF;
+  animation: pill-flick-in 2s steps(1, end) 1 both,
+             gpill-aqua-to-pink 2s ease-out 1 both;
+}
+
+/* "★ Featured Program" pill inside the GLP-1 service box: flickers to life in
+   Neon Aqua (matching the drops), then stops flickering and stays solid Neon
+   Aqua. Only the opacity flickers; the colour holds aqua throughout. */
+.gpill-flick {
+  display: inline-block;
+  white-space: pre;
+  color: #D0FFF8;
+  -webkit-text-fill-color: #D0FFF8;
+  text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6);
+  animation: pill-flick-in 2s steps(1, end) 1 both;
+}
+
+@keyframes gpill-aqua-to-pink {
+  0%, 80% {
+    color: #D0FFF8;
+    -webkit-text-fill-color: #D0FFF8;
+    text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6);
+  }
+  100% {
+    color: #FF00FF;
+    -webkit-text-fill-color: #FF00FF;
+    text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px rgba(255, 0, 255, 0.6);
+  }
+}
+
+/* The opposite: flicker in Hot Pink, then settle to Neon Aqua. Used for every
+   other re-flicker on the top pill so the colours alternate. */
+@keyframes gpill-pink-to-aqua {
+  0%, 80% {
+    color: #FF00FF;
+    -webkit-text-fill-color: #FF00FF;
+    text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px rgba(255, 0, 255, 0.6);
+  }
+  100% {
+    color: #D0FFF8;
+    -webkit-text-fill-color: #D0FFF8;
+    text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6);
+  }
+}
+
+@keyframes pill-flick-in {
+  0%   { opacity: 0; }
+  6%   { opacity: 1; }
+  10%  { opacity: 0.15; }
+  16%  { opacity: 1; }
+  24%  { opacity: 0.25; }
+  30%  { opacity: 1; }
+  42%  { opacity: 0.4; }
+  48%  { opacity: 1; }
+  60%  { opacity: 0.2; }
+  66%  { opacity: 1; }
+  78%  { opacity: 0.55; }
+  84%  { opacity: 1; }
+  92%  { opacity: 0.35; }
+  100% { opacity: 1; }
+}
 /* Green CSS Falling Stars */
 .falling-star {
   background: linear-gradient(to bottom, transparent, rgba(0, 255, 205, 0.4), #00FFCD) !important;
@@ -1201,4 +1274,51 @@ header .logo .lm {
   color: #00FFCD !important;
   -webkit-text-fill-color: #00FFCD !important;
   text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD !important;
+}
+
+/* ── Unified pill styling ─ every pill matches the GLP-1 Featured tab ──────
+   Sharp hot-pink (#FF00FF) lettering with a light glow on the words, a slight
+   glow behind the black pill, and the same font. Applied last so every pill
+   box across the site looks identical to the GLP-1 tab. (The A/B/C markers,
+   step numbers and countdown keep their aqua accent — they're not pills.) */
+.lava-pill,
+.nav-pill,
+.btn,
+.btn-primary,
+.btn-ghost,
+.qualify-btn,
+.dv-btn,
+.oe-btn,
+.ftag,
+.oe-tag,
+.svc-featured .ftag,
+.ftag-clone {
+  font-family: 'Yeseva One', serif !important;
+  background: #000000 !important;
+  color: #FF00FF !important;
+  -webkit-text-fill-color: #FF00FF !important;
+  -webkit-text-stroke: 0 !important;
+  border: 1px solid #FF00FF !important;
+  text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px rgba(255, 0, 255, 0.6) !important;
+  box-shadow: 0 0 8px #FF00FF, inset 0 0 8px rgba(255, 0, 255, 0.4) !important;
+}
+
+.lava-pill:hover,
+.nav-pill:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-ghost:hover,
+.qualify-btn:hover,
+.dv-btn:hover,
+.oe-btn:hover,
+.ftag:hover,
+.oe-tag:hover,
+.svc-featured .ftag:hover,
+.ftag-clone:hover {
+  background: #0a0a0a !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border-color: #FF00FF !important;
+  text-shadow: 0 0 6px #FF00FF, 0 0 15px #FF00FF, 0 0 25px #FF00FF !important;
+  box-shadow: 0 0 15px #FF00FF, inset 0 0 10px rgba(255, 0, 255, 0.6) !important;
 }
