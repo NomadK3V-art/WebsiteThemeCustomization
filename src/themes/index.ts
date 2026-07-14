@@ -1,5 +1,6 @@
 import type { Theme } from './types';
 import { neonLava } from './neon-lava';
+import { neonProton } from './neon-proton';
 
 // ─────────────────────────────────────────────────────────────────────────
 // THEME REGISTRY
@@ -13,13 +14,14 @@ import { neonLava } from './neon-lava';
 
 export const themes: Record<string, Theme> = {
   [neonLava.id]: neonLava,
+  [neonProton.id]: neonProton,
   // Future seasonal presets get registered here, e.g.:
   //   [winterFrost.id]: winterFrost,
   //   [autumnEmber.id]: autumnEmber,
 };
 
 /** The design currently shipped to the live site. */
-export const ACTIVE_THEME_ID = 'neon-lava';
+export const ACTIVE_THEME_ID = 'neon-proton';
 
 export function getActiveTheme(): Theme {
   return themes[ACTIVE_THEME_ID] ?? neonLava;

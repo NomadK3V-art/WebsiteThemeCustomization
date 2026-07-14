@@ -115,18 +115,7 @@ setInterval(() => {
   for (let i = 0; i < loops; i++) {
     // High drop rate: 85% chance every 300ms
     if (Math.random() < ENGINE.drops.spawnChance) {
-      bouncingDrops.push({
-        x: Math.random() * window.innerWidth,
-        y: -50 - (Math.random() * 50),
-        vx: (Math.random() - 0.5) * 6,
-        vy: 2 + Math.random() * 5,
-        life: dropLifespans[Math.floor(Math.random() * dropLifespans.length)],
-        born: Date.now(),
-        trail: [],
-        settled: false,
-        colorIndex: Math.floor(Math.random() * colors.length),
-        boxFriction: 0.75 + Math.random() * 0.24 // Ranges from 0.75 (stops fast) to 0.99 (rolls off edge)
-      });
+      // bouncingDrops.push({ ... }); // PROTON BALLS DISABLED
     }
   }
 }, ENGINE.drops.spawnIntervalMs);
