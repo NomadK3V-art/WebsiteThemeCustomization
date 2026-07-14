@@ -1158,8 +1158,7 @@ header .logo .lm,
    Hot Pink Neon — same behaviour as the GLP-1 service-box pill. Resting state
    (between the JS-driven occasional re-flickers) is hot pink. */
 .pill-flick {
-  display: inline-block;
-  white-space: pre;
+  display: inline;
   opacity: 1; /* resting */
   color: #FF00FF; /* resting hot pink (animation drives aqua while flickering) */
   -webkit-text-fill-color: #FF00FF;
@@ -1171,8 +1170,7 @@ header .logo .lm,
    Neon Aqua (matching the drops), then stops flickering and stays solid Neon
    Aqua. Only the opacity flickers; the colour holds aqua throughout. */
 .gpill-flick {
-  display: inline-block;
-  white-space: pre;
+  display: inline;
   color: #D0FFF8;
   -webkit-text-fill-color: #D0FFF8;
   text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6);

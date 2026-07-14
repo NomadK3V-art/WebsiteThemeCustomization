@@ -49,12 +49,17 @@ function scheduleFlicker(spans: HTMLElement[], timers: number[]) {
 function splitIntoFlickerLetters(el: HTMLElement): HTMLElement[] {
   const text = el.textContent ?? ''
   el.textContent = ''
+  // Letters live in a single wrapper span so pills that are flex containers
+  // (e.g. .btn has gap:8px) treat the whole word as one flex item and don't
+  // space the letters apart.
+  const wrap = document.createElement('span')
+  el.appendChild(wrap)
   const spans: HTMLElement[] = []
   for (const ch of Array.from(text)) {
     const s = document.createElement('span')
     s.className = 'pill-flick'
     s.textContent = ch === ' ' ? ' ' : ch
-    el.appendChild(s)
+    wrap.appendChild(s)
     if (ch.trim() !== '') spans.push(s)
   }
   return spans
