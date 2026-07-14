@@ -12,7 +12,7 @@
   /* Brand / base palette */
   --purple: #1A0040;
   --purple-d: #0D0020;
-  --red: #00BFFF;
+  --red: #FF00FF;
   --red-d: #008B8B;
   --ink: #FFFFFF;      /* headings — solid white, readable on dark surfaces */
   --body: #FFFFFF;     /* body copy — white on the dark surfaces */
@@ -221,12 +221,12 @@
   right: 0;
   height: 16px;
   /* Simulating a row of individual overlapping gas jets */
-  background: radial-gradient(circle at bottom, #FFFFFF 0%, #E0FFFF 15%, #00FFFF 40%, rgba(0, 191, 255, 0) 70%) repeat-x;
+  background: radial-gradient(circle at bottom, #FFFFFF 0%, #FFD6FF 15%, #FF00FF 40%, rgba(0, 191, 255, 0) 70%) repeat-x;
   background-size: 18px 16px;
   background-position: 0 16px;
   opacity: 0;
   /* Adding the characteristic neon blue glow of gas */
-  filter: blur(0.5px) drop-shadow(0 -2px 6px #00BFFF) drop-shadow(0 0 4px #00FFFF);
+  filter: blur(0.5px) drop-shadow(0 -2px 6px #FF00FF) drop-shadow(0 0 4px #FF00FF);
   transition: opacity 0.3s ease, background-position 0.2s ease-out;
   pointer-events: none;
   z-index: 10;
@@ -274,8 +274,8 @@ h1, h2, h3, .logo b, .logo b span, .foot-logo b, .foot-logo b span, .hero h1 em 
 }
 
 .btn-primary, .qualify-btn, .dv-btn {
-  background: linear-gradient(135deg, #FF1493 0%, #8B0066 45%, #1A0040 100%) !important;
-  border: 1px solid rgba(255, 20, 147, 0.6) !important;
+  background: linear-gradient(135deg, #FF00FF 0%, #8B0066 45%, #1A0040 100%) !important;
+  border: 1px solid rgba(255, 0, 255, 0.6) !important;
   color: var(--ink) !important;
   text-shadow: none !important;
 }
@@ -325,7 +325,7 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('./imports/Blue_flame_spec..jpg') center/cover no-repeat;
+  background: url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat;
   opacity: 0;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -365,10 +365,10 @@ footer {
   background: transparent !important;
   border: 1px solid var(--ink) !important;
   
-  font-size: 1.1rem !important;
+  font-size: 0.95rem !important;
   padding: 12px 16px !important;
   border-radius: 8px !important;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1) !important; /* Could leave this or make it var(--neon-shadow) but text color transition is key */
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.1) !important; /* Could leave this or make it var(--neon-shadow) but text color transition is key */
 }
 
 .svc-featured .fr .svc-resource:hover, .svc a.svc-resource:hover {
@@ -397,7 +397,7 @@ footer {
 .svc a.more, .svc-featured .fr .more {
   color: var(--ink) !important;
   text-shadow: none !important;
-  font-size: 1.4rem !important;
+  font-size: 1.15rem !important;
   padding: 10px 24px !important;
   font-family: var(--display) !important;
 }
@@ -409,14 +409,14 @@ footer {
 
 /* Apply Purple_Night-1.jpg to .svc and .oe-card */
 .svc, .oe-card {
-  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
   border: 1px solid var(--line) !important;
   box-shadow: var(--card-shadow) !important;
 }
 
 /* Ensure the purple variant doesn't override */
 .svc.svc-purple {
-  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Purple_Night-1.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
 }
 
 /* Reduce contrast of blue letters in all boxes */
@@ -436,11 +436,11 @@ footer {
 
 /* Increase size of blue letters specifically in the GLP-1 box (.svc-featured) */
 .svc-featured .fr .svc-resource {
-  font-size: 1.25rem !important; /* Increased from 1.1rem */
+  font-size: 1.05rem !important; /* Increased from 1.1rem */
 }
 
 .svc-featured .fr .more {
-  font-size: 1.4rem !important; /* Increased from 1.2rem */
+  font-size: 1.15rem !important; /* Increased from 1.2rem */
 }
 
 .svc-featured .ftag {
@@ -527,7 +527,7 @@ footer { color: var(--body) !important; }
   -webkit-text-stroke: var(--neon-stroke) !important;
   transition: color 1s ease, text-shadow 1s ease, border-color 1s ease, box-shadow 1s ease;
   font-family: 'Yeseva One', serif !important;
-  font-size: 1.4rem !important;
+  font-size: 1.15rem !important;
   font-weight: 400 !important;
   letter-spacing: normal !important;
   text-transform: none !important;
@@ -574,17 +574,17 @@ h1, h2, h3, h4, .lava-text, .lava-text-sm, .logo b, .oe-num {
 
 /* Private Health Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-phi {
-  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
 }
 
 /* Life Insurance specific background using the blue smoke from GLP-1 */
 .svc.svc-li {
-  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/Blue_flame_spec..jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
 }
 
 /* Concierge Medicine specific background using Con.jpg */
 .svc.svc-con {
-  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/gg.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
 }
 
 /* Animated Spark Effect on Button Hover */
@@ -885,7 +885,7 @@ select:-webkit-autofill {
   position: absolute;
   top: -400px;
   width: 2px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.4), #00FFFF);
+  background: linear-gradient(to bottom, transparent, rgba(255, 0, 255, 0.4), #FF00FF);
   border-radius: 4px;
   opacity: 0;
 }
@@ -899,7 +899,7 @@ select:-webkit-autofill {
   height: 5px;
   background: #FFFFFF;
   border-radius: 50%;
-  box-shadow: 0 0 8px 2px #00FFFF, 0 0 16px 2px #00BFFF;
+  box-shadow: 0 0 8px 2px #FF00FF, 0 0 16px 2px #FF00FF;
 }
 
 /* 5 different life spans and travel distances */
@@ -947,3 +947,229 @@ select:-webkit-autofill {
 .type-3 { animation-name: fall-3; animation-timing-function: linear; animation-iteration-count: infinite; }
 .type-4 { animation-name: fall-4; animation-timing-function: linear; animation-iteration-count: infinite; }
 .type-5 { animation-name: fall-5; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+/* Mirrored backgrounds for random (even) boxes */
+.svc:nth-child(even),
+.oe-card:nth-child(even),
+.svc-featured:nth-child(even),
+.service-box:nth-child(even) {
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2_flipped.jpg') center/cover no-repeat !important;
+}
+
+.svc:nth-child(even)::before,
+.svc-featured:nth-child(even)::before,
+.service-box:nth-child(even)::before {
+  background: url('./imports/77b3a291f4bd555bfa1f6b89796a97d2_flipped.jpg') center/cover no-repeat;
+}
+
+/* Also ensure the specific purple variants get the flipped background if they are even */
+.svc.svc-purple:nth-child(even),
+.svc.svc-phi:nth-child(even),
+.svc.svc-li:nth-child(even),
+.svc.svc-con:nth-child(even) {
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2_flipped.jpg') center/cover no-repeat !important;
+}
+
+/* Unified Background Override for boxes */
+.svc, .svc-featured, .service-box, .formcard, .why-item, .step, .oe-card, .news-card, .dv-bar, .card {
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
+}
+
+/* Maintain the mirrored alternating background for boxes to keep the clouds randomized */
+.svc:nth-child(even),
+.svc-featured:nth-child(even),
+.service-box:nth-child(even),
+.why-item:nth-child(even),
+.step:nth-child(even),
+.news-card:nth-child(even),
+.dv-bar:nth-child(even) {
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2_flipped.jpg') center/cover no-repeat !important;
+}
+
+/* Explicit Green Neon Override for Header Logo */
+header .logo b, header .logo b span {
+  color: #FF00FF !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.2) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+header .logo .lm {
+  background: #FFFFFF !important;
+  color: #FF00FF !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6) !important;
+}
+
+/* Override pills to have solid black background and neon green text */
+.lava-pill,
+.nav-pill,
+.btn,
+.btn-primary,
+.btn-ghost,
+.qualify-btn,
+.dv-btn,
+.oe-btn,
+.ftag,
+.oe-tag,
+.svc-featured .ftag,
+.ftag-clone {
+  background: #000000 !important;
+  border: 1px solid #FF00FF !important;
+  color: #FF00FF !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.lava-pill:hover,
+.nav-pill:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-ghost:hover,
+.qualify-btn:hover,
+.dv-btn:hover,
+.oe-btn:hover,
+.ftag-clone:hover {
+  background: #0a0a0a !important;
+  border-color: #FF00FF !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 15px rgba(255, 0, 255, 0.8) !important;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5) !important;
+  filter: none !important;
+}
+
+/* Explicit Neon Orange Override for Countdown Numbers */
+.oe-num {
+  color: #FF00FF !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4) !important;
+  -webkit-text-fill-color: #FF00FF !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+/* A, B, C Neon Orange Override */
+.why-item .n {
+  background: #000000 !important;
+  border: 1px solid #FF00FF !important;
+  color: #FF00FF !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.why-item:hover .n {
+  background: #0a0a0a !important;
+  border-color: #FF00FF !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.8), 0 0 15px rgba(255, 0, 255, 0.8) !important;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5) !important;
+}
+
+/* Override the static #FF00FF orange color so that all neon elements use the dynamically cycling CSS variables from main.tsx */
+header .logo b, header .logo b span,
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.oe-num,
+.why-item .n {
+  color: var(--neon-text, #FF00FF) !important;
+  text-shadow: var(--neon-glow, 0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6)) !important;
+  transition: color 0.1s linear, text-shadow 0.1s linear, border-color 0.1s linear, box-shadow 0.1s linear !important;
+}
+
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.why-item .n {
+  border-color: var(--neon-text, #FF00FF) !important;
+}
+
+.lava-pill:hover, .nav-pill:hover, .btn:hover, .btn-primary:hover, .btn-ghost:hover, .qualify-btn:hover, .dv-btn:hover, .oe-btn:hover, .ftag-clone:hover,
+.why-item:hover .n {
+  color: #ffffff !important;
+  border-color: var(--neon-text, #FF00FF) !important;
+  box-shadow: 0 0 20px var(--neon-text, rgba(255, 0, 255, 0.5)) !important;
+}
+
+header .logo .lm {
+  color: var(--neon-text, #FF00FF) !important;
+}
+
+/* Refined Neon DC2F02 to make it actually pop like the image */
+header .logo b, header .logo b span,
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.oe-num,
+.why-item .n {
+  /* Use a much brighter core so it doesn't look muddy red */
+  color: #FFD6FF !important; 
+  /* Use the exact DC2F02 (220, 47, 2) for the thick glowing aura */
+  text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px rgba(255, 0, 255, 0.6) !important;
+}
+
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.why-item .n {
+  border-color: #FF00FF !important;
+  box-shadow: 0 0 8px #FF00FF, inset 0 0 8px rgba(255, 0, 255, 0.4) !important;
+}
+
+.lava-pill:hover, .nav-pill:hover, .btn:hover, .btn-primary:hover, .btn-ghost:hover, .qualify-btn:hover, .dv-btn:hover, .oe-btn:hover, .ftag-clone:hover,
+.why-item:hover .n {
+  color: #FFFFFF !important;
+  border-color: #FF00FF !important;
+  text-shadow: 0 0 6px #FF00FF, 0 0 15px #FF00FF, 0 0 25px #FF00FF !important;
+  box-shadow: 0 0 15px #FF00FF, inset 0 0 10px rgba(255, 0, 255, 0.6) !important;
+}
+
+/* Refined Neon D00000 to make it actually pop like the image */
+header .logo b, header .logo b span,
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.oe-num,
+.why-item .n {
+  /* Brighter core for the deep red neon */
+  color: #FFD6FF !important; 
+  /* Use D00000 for the thick glowing aura */
+  text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px rgba(255, 0, 255, 0.6) !important;
+}
+
+header .logo .lm,
+.lava-pill, .nav-pill, .btn, .btn-primary, .btn-ghost, .qualify-btn, .dv-btn, .oe-btn, .ftag, .oe-tag, .svc-featured .ftag, .ftag-clone,
+.why-item .n {
+  border-color: #FF00FF !important;
+  box-shadow: 0 0 8px #FF00FF, inset 0 0 8px rgba(255, 0, 255, 0.4) !important;
+}
+
+.lava-pill:hover, .nav-pill:hover, .btn:hover, .btn-primary:hover, .btn-ghost:hover, .qualify-btn:hover, .dv-btn:hover, .oe-btn:hover, .ftag-clone:hover,
+.why-item:hover .n {
+  color: #FFFFFF !important;
+  border-color: #FF00FF !important;
+  text-shadow: 0 0 6px #FF00FF, 0 0 15px #FF00FF, 0 0 25px #FF00FF !important;
+  box-shadow: 0 0 15px #FF00FF, inset 0 0 10px rgba(255, 0, 255, 0.6) !important;
+}
+
+/* Force ftag-clone to use Yeseva One like all the other pills */
+.ftag-clone {
+  font-family: 'Yeseva One', serif !important;
+}
+/* Green CSS Falling Stars */
+.falling-star {
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 205, 0.4), #00FFCD) !important;
+}
+
+.falling-star::after {
+  background: #D0FFF8 !important;
+  box-shadow: 0 0 8px 2px #00FFCD, 0 0 16px 2px #00FFCD !important;
+}
+
+/* Explicit override for countdown numbers to match the Neon Aqua of the drops */
+.oe-num {
+  color: #D0FFF8 !important; 
+  -webkit-text-fill-color: #D0FFF8 !important;
+  text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6) !important;
+}
+
+/* Force highest specificity to ensure countdown overrides previous neon text rules */
+.oe-card .oe-unit .oe-num {
+  color: #D0FFF8 !important; 
+  -webkit-text-fill-color: #D0FFF8 !important;
+  text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6) !important;
+}

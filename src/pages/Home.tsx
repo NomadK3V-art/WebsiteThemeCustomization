@@ -102,6 +102,7 @@ export default function Home() {
         <div className="fr-divider"><span>Your Concierge Plan</span></div>
         <a className="svc-resource" href="/concierge/">🩺 What's included &amp; why ~83% of issues are handled virtually</a>
         <a className="svc-resource" href="/in-person-concierge/">🏥 In-person concierge: what it's like &amp; costs</a>
+        <a className="lava-pill" href="https://portal.optimalmd.com/register/KEVIN10" target="_blank" rel="noopener" style={{ display: "block", textAlign: "center", marginTop: "4px", marginBottom: "4px", padding: "12px 16px", textDecoration: "none", fontSize: "1.1rem", borderRadius: "100px" }}>🔗 Concierge Plan</a>
         <a className="more" href="/glp1/">Learn more →</a>
       </div>
     </div>

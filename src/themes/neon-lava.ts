@@ -41,78 +41,24 @@ export const neonLava: Theme = {
   },
 
   // The 7-stop rainbow cycle (R, O, Y, G, B, I, V). Cursor starts at Blue.
-  palette: [
-    { // Red
-      coreRgba: 'rgba(255, 192, 192, 1)',
-      mid: 'rgba(255, 0, 100, 0.6)',
-      tailStart: 'rgba(255, 0, 0, 0)',
-      shadowOuter: '#FF0044',
-      shadowInner: '#FF0000',
-      headCore: '#FFC0D0',
-      headShadow: '0 0 6px rgba(255, 50, 100, 0.8), 0 0 12px rgba(255, 0, 50, 0.6), 0 0 20px rgba(255, 0, 0, 0.4)',
-    },
-    { // Orange
-      coreRgba: 'rgba(255, 224, 192, 1)',
-      mid: 'rgba(255, 120, 0, 0.6)',
-      tailStart: 'rgba(255, 100, 0, 0)',
-      shadowOuter: '#FF8800',
-      shadowInner: '#FF4400',
-      headCore: '#FFE0C0',
-      headShadow: '0 0 6px rgba(255, 150, 50, 0.8), 0 0 12px rgba(255, 100, 0, 0.6), 0 0 20px rgba(255, 50, 0, 0.4)',
-    },
-    { // Yellow
-      coreRgba: 'rgba(255, 255, 192, 1)',
-      mid: 'rgba(255, 255, 0, 0.6)',
-      tailStart: 'rgba(255, 200, 0, 0)',
-      shadowOuter: '#FFCC00',
-      shadowInner: '#FFFF00',
-      headCore: '#FFFFC0',
-      headShadow: '0 0 6px rgba(255, 255, 100, 0.8), 0 0 12px rgba(255, 255, 0, 0.6), 0 0 20px rgba(255, 200, 0, 0.4)',
-    },
-    { // Green
-      coreRgba: 'rgba(192, 255, 192, 1)',
-      mid: 'rgba(0, 255, 100, 0.6)',
-      tailStart: 'rgba(0, 200, 0, 0)',
-      shadowOuter: '#00FF44',
-      shadowInner: '#00FF00',
-      headCore: '#C0FFD0',
-      headShadow: '0 0 6px rgba(50, 255, 100, 0.8), 0 0 12px rgba(0, 255, 50, 0.6), 0 0 20px rgba(0, 255, 0, 0.4)',
-    },
-    { // Blue (original ink blue)
-      coreRgba: 'rgba(192, 255, 240, 1)',
-      mid: 'rgba(0, 255, 240, 0.6)',
-      tailStart: 'rgba(0, 200, 255, 0)',
-      shadowOuter: '#00BFFF',
-      shadowInner: '#00FFFF',
-      headCore: '#C0FFF0',
-      headShadow: '0 0 6px rgba(0, 255, 200, 0.8), 0 0 12px rgba(0, 200, 255, 0.6), 0 0 20px rgba(0, 255, 180, 0.4)',
-    },
-    { // Indigo
-      coreRgba: 'rgba(192, 192, 255, 1)',
-      mid: 'rgba(100, 0, 255, 0.6)',
-      tailStart: 'rgba(50, 0, 255, 0)',
-      shadowOuter: '#4400FF',
-      shadowInner: '#8800FF',
-      headCore: '#D0C0FF',
-      headShadow: '0 0 6px rgba(150, 100, 255, 0.8), 0 0 12px rgba(100, 50, 255, 0.6), 0 0 20px rgba(50, 0, 255, 0.4)',
-    },
-    { // Violet
-      coreRgba: 'rgba(255, 192, 255, 1)',
-      mid: 'rgba(255, 0, 255, 0.6)',
-      tailStart: 'rgba(200, 0, 255, 0)',
-      shadowOuter: '#FF00FF',
-      shadowInner: '#FF00BB',
-      headCore: '#FFC0FF',
-      headShadow: '0 0 6px rgba(255, 100, 255, 0.8), 0 0 12px rgba(255, 50, 255, 0.6), 0 0 20px rgba(200, 0, 255, 0.4)',
+      palette: [
+    { // Neon Cyan forced for drops
+      coreRgba: 'rgba(150, 255, 240, 1)',
+      mid: 'rgba(0, 255, 205, 0.6)',
+      tailStart: 'rgba(0, 255, 205, 0)',
+      shadowOuter: '#00FFCD',
+      shadowInner: '#00CCAA',
+      headCore: '#D0FFF8',
+      headShadow: '0 0 6px rgba(0, 255, 205, 0.8), 0 0 12px rgba(0, 255, 205, 0.6), 0 0 20px rgba(0, 255, 205, 0.4)',
     },
   ],
 
   // The "how it performs" motion tuning.
   engine: {
-    startColorIndex: 4, // Blue
-    cycleDuration: 10000,
+    startColorIndex: 0, // Green
+    cycleDuration: 6000,
     textColorOffset: 5000,
-    crossfadeStart: 9000,
+    crossfadeStart: 5000,
     cursor: {
       trailSpeedScale: 1000,
       maxTrailLength: 4000,

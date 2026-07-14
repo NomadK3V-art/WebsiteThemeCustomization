@@ -109,21 +109,25 @@ let bouncingDrops: any[] = [];
 const dropLifespans = ENGINE.drops.lifespans;
 
 // Spawn Bouncing Drops periodically
+const burstEndTime = Date.now() + 5000; // 5 seconds of 10x drops on load!
 setInterval(() => {
-  // High drop rate: 85% chance every 300ms
-  if (Math.random() < ENGINE.drops.spawnChance) {
-    bouncingDrops.push({
-      x: Math.random() * window.innerWidth,
-      y: -50,
-      vx: (Math.random() - 0.5) * 6,
-      vy: 2 + Math.random() * 5,
-      life: dropLifespans[Math.floor(Math.random() * dropLifespans.length)],
-      born: Date.now(),
-      trail: [],
-      settled: false,
-      colorIndex: Math.floor(Math.random() * colors.length),
-      boxFriction: 0.75 + Math.random() * 0.24 // Ranges from 0.75 (stops fast) to 0.99 (rolls off edge)
-    });
+  const loops = Date.now() < burstEndTime ? 20 : 1;
+  for (let i = 0; i < loops; i++) {
+    // High drop rate: 85% chance every 300ms
+    if (Math.random() < ENGINE.drops.spawnChance) {
+      bouncingDrops.push({
+        x: Math.random() * window.innerWidth,
+        y: -50 - (Math.random() * 50),
+        vx: (Math.random() - 0.5) * 6,
+        vy: 2 + Math.random() * 5,
+        life: dropLifespans[Math.floor(Math.random() * dropLifespans.length)],
+        born: Date.now(),
+        trail: [],
+        settled: false,
+        colorIndex: Math.floor(Math.random() * colors.length),
+        boxFriction: 0.75 + Math.random() * 0.24 // Ranges from 0.75 (stops fast) to 0.99 (rolls off edge)
+      });
+    }
   }
 }, ENGINE.drops.spawnIntervalMs);
 
@@ -207,10 +211,14 @@ function animate() {
       }
     }
     
-    // Text color no longer cycles — headings stay a static readable color.
-
     const c1 = colors[baseIndex];
     const c2 = colors[nextIndex];
+
+    // Re-enable text color cycling! We'll interpolate and update --neon-text and --neon-glow variables
+    // DISABLED: Letters revert to static Orange, so we stop updating these variables.
+    // const currentShadowOuterTxt = lerpColor(c1.shadowOuter, c2.shadowOuter, fadeFactor);
+    // document.body.style.setProperty('--neon-text', currentShadowOuterTxt);
+    // document.body.style.setProperty('--neon-glow', ...);
     
     const currentTailStart = lerpColor(c1.tailStart, c2.tailStart, fadeFactor);
     const currentMid = lerpColor(c1.mid, c2.mid, fadeFactor);

@@ -15,7 +15,7 @@ const services = [
       'Nutrition & lifestyle coaching',
       'Insurance coordination where applicable',
     ],
-    links: ['How GLP-1 works', 'Am I a candidate?', 'Cost & coverage breakdown'],
+    links: [{label: 'How GLP-1 works', href: '/contact'}, {label: 'Am I a candidate?', href: '/contact'}, {label: 'Cost & coverage breakdown', href: '/contact'}],
   },
   {
     icon: '🛡️',
@@ -31,7 +31,7 @@ const services = [
       'HSA/HRA guidance',
       'Annual plan review & adjustment',
     ],
-    links: ['Compare plan types', 'Open Enrollment 2026 guide', 'ACA vs. private plans explained'],
+    links: [{label: 'Compare plan types', href: '/contact'}, {label: 'Open Enrollment 2026 guide', href: '/contact'}, {label: 'ACA vs. private plans explained', href: '/contact'}],
   },
   {
     icon: '🩺',
@@ -47,7 +47,7 @@ const services = [
       'Prescription management & refills',
       'Lab interpretation & follow-up care',
     ],
-    links: ['What\'s included in $149/mo', 'Meet your concierge doctor', 'Family plan details'],
+    links: [{label: 'What\'s included in $149/mo', href: '/contact'}, {label: 'Meet your concierge doctor', href: '/contact'}, {label: 'Family plan details', href: '/contact'}, {label: 'Concierge Plan', href: 'https://portal.optimalmd.com/register/KEVIN10'}],
   },
   {
     icon: '❤️',
@@ -63,7 +63,7 @@ const services = [
       'Estate planning considerations',
       'Annual policy review',
     ],
-    links: ['Term vs. permanent explained', 'Get a no-obligation quote', 'Life insurance as a wealth tool'],
+    links: [{label: 'Term vs. permanent explained', href: '/contact'}, {label: 'Get a no-obligation quote', href: '/contact'}, {label: 'Life insurance as a wealth tool', href: '/contact'}],
   },
   {
     icon: '🦷',
@@ -79,7 +79,7 @@ const services = [
       'Self-serve enrollment portal',
       'Agent support for complex situations',
     ],
-    links: ['View dental plan options', 'Vision coverage details', 'Enroll via Ameritas portal'],
+    links: [{label: 'View dental plan options', href: '/contact'}, {label: 'Vision coverage details', href: '/contact'}, {label: 'Enroll via Ameritas portal', href: '/contact'}],
   },
 ]
 
@@ -126,7 +126,9 @@ export default function Services() {
                   </ul>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {s.links.map(l => (
-                      <Link key={l} to="/contact" className="lava-link" style={{  fontSize: '0.88rem', fontWeight: 700 }}>→ {l}</Link>
+                      l.href.startsWith('http') ? 
+                      <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="lava-pill" style={{ padding: "8px 20px", fontSize: "0.88rem", fontWeight: 700, textDecoration: "none", borderRadius: "100px", display: "inline-flex", alignItems: "center" }}>🔗 {l.label}</a> :
+                      <Link key={l.label} to={l.href} className="lava-link" style={{  fontSize: '0.88rem', fontWeight: 700 }}>→ {l.label}</Link>
                     ))}
                   </div>
                 </div>
