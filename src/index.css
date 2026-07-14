@@ -284,7 +284,7 @@ h1, h2, h3, .logo b, .logo b span, .foot-logo b, .foot-logo b span, .hero h1 em 
   background: radial-gradient(ellipse at 50% 0%, #1A0040 0%, #05000A 55%) !important;
 }
 header, .cta, .oe-card {
-  background: linear-gradient(rgba(13, 0, 37, 0.8), rgba(13, 0, 37, 0.8)), url('/src/imports/Purple_Night.jpg') center/cover no-repeat !important;
+  background: linear-gradient(rgba(123, 44, 191, 0.55), rgba(80, 15, 130, 0.85)), url('./imports/77b3a291f4bd555bfa1f6b89796a97d2.jpg') center/cover no-repeat !important;
 }
 footer {
   background: #05000A !important;
@@ -1169,7 +1169,36 @@ header .logo .lm,
 
 /* Force highest specificity to ensure countdown overrides previous neon text rules */
 .oe-card .oe-unit .oe-num {
-  color: #D0FFF8 !important; 
+  color: #D0FFF8 !important;
   -webkit-text-fill-color: #D0FFF8 !important;
   text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6) !important;
+}
+
+/* Neon Aqua for step/why markers (A,B,C & 01,02,03), the "RX" logo mark, and the favicon "S" box — matching the drops and countdown numbers */
+.why-item .n,
+.steps .step .num,
+header .logo b span {
+  color: #D0FFF8 !important;
+  -webkit-text-fill-color: #D0FFF8 !important;
+  text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD, 0 0 30px rgba(0, 255, 205, 0.6) !important;
+}
+
+.why-item .n {
+  border-color: #00FFCD !important;
+  box-shadow: 0 0 8px #00FFCD, inset 0 0 8px rgba(0, 255, 205, 0.4) !important;
+}
+
+.why-item:hover .n {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border-color: #00FFCD !important;
+  text-shadow: 0 0 6px #00FFCD, 0 0 15px #00FFCD, 0 0 25px #00FFCD !important;
+  box-shadow: 0 0 15px #00FFCD, inset 0 0 10px rgba(0, 255, 205, 0.6) !important;
+}
+
+header .logo .lm {
+  background: #FFFFFF !important;
+  color: #00FFCD !important;
+  -webkit-text-fill-color: #00FFCD !important;
+  text-shadow: 0 0 4px #00FFCD, 0 0 10px #00FFCD, 0 0 20px #00FFCD !important;
 }
