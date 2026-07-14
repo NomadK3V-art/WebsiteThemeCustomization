@@ -31,8 +31,8 @@ function FeaturedPill() {
 }
 
 function FallingStars() {
-  // Create 60 individual stars
-  const stars = Array.from({ length: 60 }).map((_, i) => {
+  // Create 30 individual stars
+  const stars = Array.from({ length: 30 }).map((_, i) => {
     const left = Math.random() * 100;
     const delay = Math.random() * 8; // Random start delay
     const type = Math.floor(Math.random() * 5) + 1; // 5 different lifespans/distances
